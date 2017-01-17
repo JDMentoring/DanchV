@@ -1,3 +1,5 @@
+package ua.smartprog.bankProject;
+
 public class account {
     private int money;
     private int CardNumber;
