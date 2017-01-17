@@ -25,4 +25,9 @@ public class FixedStack implements IntStack {
             return stck[top--];
         }
     }
+
+    public int getSize(){
+        return stck.length;
+    }
+
 }
