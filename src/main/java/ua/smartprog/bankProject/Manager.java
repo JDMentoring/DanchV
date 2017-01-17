@@ -1,4 +1,4 @@
-package ua.smartprog.bankProject;
+/*package ua.smartprog.bankProject;
 
 public class Manager extends employee{
     private int Tax;
@@ -40,4 +40,4 @@ public class Manager extends employee{
 
         BankName = bankName;
     }
-}
+}*/
