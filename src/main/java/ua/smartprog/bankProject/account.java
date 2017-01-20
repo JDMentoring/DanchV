@@ -26,6 +26,7 @@ public class account {
             System.out.println("Access denied!!");
         }
     }
+    //End Task 1501
 
     public void takeMoney(int money) {
         if (money > checkBalance()) {
