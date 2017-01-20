@@ -1,5 +1,5 @@
 
-/*package ua.smartprog.bankProject;
+package ua.smartprog.bankProject;
 public class runner {
     public static void main(String[] args) {
         Manager manag = new Manager();
@@ -19,4 +19,4 @@ public class runner {
         System.out.println(office.getSalary());
         System.out.println(con.getSalary());
     }
-}*/
+}

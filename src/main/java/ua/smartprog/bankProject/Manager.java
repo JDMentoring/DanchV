@@ -1,10 +1,10 @@
-/*package ua.smartprog.bankProject;
+package ua.smartprog.bankProject;
 
-public class Manager extends employee{
+public class Manager extends employee {
     private int Tax;
     private String BankName;
 
-    public Manager(){
+    public Manager() {
         Tax = 300;
         BankName = "MyBank";
         setSalary(8000);
@@ -15,16 +15,20 @@ public class Manager extends employee{
         BankName = bankName;
         setSalary(8000);
     }
-    public void increaseSal(int i, Officer a){
+
+    public void increaseSal(int i, Officer a) {
         a.setSalary(a.getSalary() + i);
     }
-    public void increaseSal(int i, consulter a){
+
+    public void increaseSal(int i, consulter a) {
         a.setSalary(a.getSalary() + i);
     }
-    public void decreaseSal(int i, Officer a){
+
+    public void decreaseSal(int i, Officer a) {
         a.setSalary(a.getSalary() - i);
     }
-    public void decreaseSal(int i, consulter a){
+
+    public void decreaseSal(int i, consulter a) {
         a.setSalary(a.getSalary() - i);
     }
 
@@ -40,4 +44,4 @@ public class Manager extends employee{
 
         BankName = bankName;
     }
-}*/
+}

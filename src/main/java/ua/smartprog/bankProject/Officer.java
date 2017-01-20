@@ -1,5 +1,7 @@
-/*import java.util.Random;
 package ua.smartprog.bankProject;
+
+import java.util.Random;
+
 public class Officer extends employee {
     private int WorkplaceNumber;
     Random random = new Random();
@@ -19,4 +21,4 @@ public class Officer extends employee {
         WorkplaceNumber = workplaceNumber;
         setSalary(2000);
     }
-}*/
+}

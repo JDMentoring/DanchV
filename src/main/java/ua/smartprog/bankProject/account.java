@@ -1,27 +1,57 @@
 package ua.smartprog.bankProject;
 
+import java.util.Scanner;
+
 public class account {
-    private int money;
-    private int CardNumber;
-    private String Password;
+    private int balance;
+    private int cardNumber;
+    private String password;
 
-    public void setPassword(String password) {
-        this.Password = password;
-    }
-
-    public void setCardNumber(int cardNumber) {
-        CardNumber = cardNumber;
+    public int checkBalance() {
+        return balance;
     }
 
     public void setMoney(int money) {
-        this.money = money;
+        this.balance = money;
+
+    }
+
+    public void showBalance() {
+        Scanner passScan = new Scanner(System.in);
+        String tempPassword = passScan.next();
+        if(checkPassword(tempPassword)) {
+            System.out.println("current balance: " + balance);
+        }
+        else{
+            System.out.println("Access denied!!");
+        }
+    }
+
+    public void takeMoney(int money) {
+        if (money > checkBalance()) {
+            System.out.println("Low balance!!");
+            checkBalance();
+        } else {
+            balance = balance - money;
+            checkBalance();
+        }
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean checkPassword(String password){
+        return password.equals(this.password);
+    }
+
+    public void setCardNumber(int cardNumber) {
+        this.cardNumber = cardNumber;
     }
 
     public int getCardNumber() {
-        return CardNumber;
+        return cardNumber;
     }
 
-    public int getMoney() {
-        return money;
-    }
+
 }

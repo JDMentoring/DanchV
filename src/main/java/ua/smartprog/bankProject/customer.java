@@ -1,11 +1,10 @@
-/*package ua.smartprog.bankProject;
+package ua.smartprog.bankProject;
 import java.util.Random;
 
 public class customer extends human{
     Random random = new Random();
     private account CustomerAccount = new account();
     private int PhoneNumber;
-    private Transaction CTransaction = new Transaction();
 
     public customer() {
         PhoneNumber = 0;
@@ -42,4 +41,4 @@ public class customer extends human{
     public int getPhoneNumber() {
         return PhoneNumber;
     }
-}*/
+}
