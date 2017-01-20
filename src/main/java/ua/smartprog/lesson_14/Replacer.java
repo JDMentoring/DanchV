@@ -14,14 +14,4 @@ public class Replacer {
     String repText = text.replace("1","9");
     printer.print(repText);
     }
-
-    public static void main(String[] args) {
-        IRead reader = new DocsReader("145451221212442");
-        IOut console = new ConsoleOut();
-        IOut printer = new PrinterOut();
-        Replacer consoleReplacer = new Replacer(reader, console);
-        Replacer printerReplacer = new Replacer(reader, printer);
-        consoleReplacer.replace();
-        printerReplacer.replace();
-    }
 }
