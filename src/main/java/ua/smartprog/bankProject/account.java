@@ -1,7 +1,7 @@
 package ua.smartprog.bankProject;
 
 import java.util.Scanner;
-
+/*start refactoring*/
 public class account {
     private int balance;
     private int cardNumber;
