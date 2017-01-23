@@ -5,7 +5,7 @@ public class Consulter extends Employee {
     public Consulter() {
         experience  = 4;
         setSalary(1000);
-
+        //new commit
     }
 
     public Consulter(int experience) {

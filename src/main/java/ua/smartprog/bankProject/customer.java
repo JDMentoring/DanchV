@@ -31,7 +31,7 @@ public class Customer extends Human {
     }
 
     public int getMoney(){
-        return CustomerAccount.getMoney();
+        return CustomerAccount.showBalance();
     }
     public void CusTransaction(int i, Customer num2){
         setMoney(getMoney() - i);

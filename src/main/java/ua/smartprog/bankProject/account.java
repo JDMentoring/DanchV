@@ -1,8 +1,8 @@
 package ua.smartprog.bankProject;
 
 import java.util.Scanner;
-/*start refactoring*/
-public class account {
+
+public class Account {
     private int balance;
     private int cardNumber;
     private String password;
@@ -13,20 +13,20 @@ public class account {
 
     public void setMoney(int money) {
         this.balance = money;
-
     }
-    //Start task 1501
-    public void showBalance() {
+
+    public int showBalance() {
         Scanner passScan = new Scanner(System.in);
         String tempPassword = passScan.next();
-        if(checkPassword(tempPassword)) {
+        if (checkPassword(tempPassword)) {
             System.out.println("current balance: " + balance);
-        }
-        else{
+            return balance;
+        } else {
             System.out.println("Access denied!!");
+            return 0;
         }
     }
-    //End Task 1501
+    //Start Task1502
 
     public void takeMoney(int money) {
         if (money > checkBalance()) {
@@ -42,7 +42,7 @@ public class account {
         this.password = password;
     }
 
-    public boolean checkPassword(String password){
+    public boolean checkPassword(String password) {
         return password.equals(this.password);
     }
 
