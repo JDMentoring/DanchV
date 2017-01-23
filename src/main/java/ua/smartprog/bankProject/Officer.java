@@ -2,7 +2,7 @@ package ua.smartprog.bankProject;
 
 import java.util.Random;
 
-public class Officer extends employee {
+public class Officer extends Employee {
     private int WorkplaceNumber;
     Random random = new Random();
 

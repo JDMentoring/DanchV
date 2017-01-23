@@ -1,14 +1,14 @@
 package ua.smartprog.bankProject;
-public class human {
+public class Human {
         private String FirstName;
         private String SecondName;
         private int Age;
-        public human(){
+        public Human(){
             FirstName = "Eric";
             SecondName = "Martin";
             Age = 30;
         }
-        public human(String fName, String sName, int cAge){
+        public Human(String fName, String sName, int cAge){
             FirstName = fName;
             SecondName = sName;
             Age = cAge;

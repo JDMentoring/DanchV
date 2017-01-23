@@ -1,6 +1,6 @@
 package ua.smartprog.bankProject;
 
-public class Manager extends employee {
+public class Manager extends Employee {
     private int Tax;
     private String BankName;
 
@@ -20,7 +20,7 @@ public class Manager extends employee {
         a.setSalary(a.getSalary() + i);
     }
 
-    public void increaseSal(int i, consulter a) {
+    public void increaseSal(int i, Consulter a) {
         a.setSalary(a.getSalary() + i);
     }
 
@@ -28,7 +28,7 @@ public class Manager extends employee {
         a.setSalary(a.getSalary() - i);
     }
 
-    public void decreaseSal(int i, consulter a) {
+    public void decreaseSal(int i, Consulter a) {
         a.setSalary(a.getSalary() - i);
     }
 

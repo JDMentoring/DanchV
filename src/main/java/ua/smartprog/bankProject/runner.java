@@ -1,13 +1,13 @@
 
 package ua.smartprog.bankProject;
-public class runner {
+public class Runner {
     public static void main(String[] args) {
         Manager manag = new Manager();
         Officer office  = new Officer();
-        consulter con = new consulter();
-        customer cus1 = new customer();
-        customer cus2 = new customer();
-        customer cus3 = new customer();
+        Consulter con = new Consulter();
+        Customer cus1 = new Customer();
+        Customer cus2 = new Customer();
+        Customer cus3 = new Customer();
         cus1.setMoney(1700);
         cus2.setMoney(2000);
         cus3.setMoney(20000);

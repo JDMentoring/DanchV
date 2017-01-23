@@ -1,17 +1,17 @@
 package ua.smartprog.bankProject;
 
-public class employee extends human {
+public class Employee extends Human {
     private int ID;
     private int Salary;
     private int WorkDays;
 
-    public employee() {
+    public Employee() {
         ID = 0;
         Salary = 0;
         WorkDays = 0;
     }
 
-    public employee(String fName, String sName, int cAge, int ID, int Sal) {
+    public Employee(String fName, String sName, int cAge, int ID, int Sal) {
         super(fName, sName, cAge);
         this.ID = ID;
         Salary = Sal;
