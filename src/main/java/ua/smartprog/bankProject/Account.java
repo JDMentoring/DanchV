@@ -1,18 +1,11 @@
 package ua.smartprog.bankProject;
 
 import java.util.Scanner;
-import java.util.Random;
 
 public class Account {
     private int balance;
     private int cardNumber;
     private String password;
-    Random random = new Random();
-
-    public Account() {
-        int half = random.nextInt(50000000) + 99999999;
-        cardNumber = half * 2;
-    }
 
     public int checkBalance() {
         return balance;
