@@ -1,29 +1,38 @@
 package ua.smartprog.bankProject;
 
 import java.util.Scanner;
+import java.util.Random;
 
 public class Account {
     private int balance;
-    private int cardNumber;
+    private String cardNumber;
     private String password;
 
+    public Account(){
+        this.cardNumber = generateCardNumber();
+    }
+
+
     public int checkBalance() {
-        return balance;
+        if(checkPassword()) {
+            return balance;
+        }
+        else{
+            System.out.println("Access denied!!");
+            return 0;
+        }
     }
 
     public void setMoney(int money) {
         this.balance = money;
     }
 
-    public int showBalance() {
-        Scanner passScan = new Scanner(System.in);
-        String tempPassword = passScan.next();
-        if (checkPassword(tempPassword)) {
+    public void showBalance() {
+
+        if (checkPassword()) {
             System.out.println("current balance: " + balance);
-            return balance;
         } else {
             System.out.println("Access denied!!");
-            return 0;
         }
     }
     //Start Task1502
@@ -39,20 +48,30 @@ public class Account {
     }
 
     public void setPassword(String password) {
+
         this.password = password;
     }
 
-    public boolean checkPassword(String password) {
-        return password.equals(this.password);
+    public boolean checkPassword() {
+        Scanner passScan = new Scanner(System.in);
+        String tempPassword = passScan.next();
+        return tempPassword.equals(this.password);
     }
 
-    public void setCardNumber(int cardNumber) {
-        this.cardNumber = cardNumber;
-    }
-
-    public int getCardNumber() {
+    public String getCardNumber() {
         return cardNumber;
     }
+
+    public String generateCardNumber(){
+        Random rand = new Random();
+        StringBuilder num = new StringBuilder();
+        for (int i = 0; i < num.capacity(); i++) {
+            int temp = rand.nextInt(10) ;
+            num.append(temp);
+        }
+        return num.toString();
+    }
+
 
 
 }
