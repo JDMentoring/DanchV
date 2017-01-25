@@ -47,6 +47,10 @@ public class Account {
         }
     }
 
+    public String generateVisaCardNumber(){
+        
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
