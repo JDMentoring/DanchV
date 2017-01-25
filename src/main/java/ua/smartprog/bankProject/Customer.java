@@ -1,4 +1,4 @@
-package ua.smartprog.bankProject;
+/*package ua.smartprog.bankProject;
 import java.util.Random;
 
 public class Customer extends Human {
@@ -41,4 +41,4 @@ public class Customer extends Human {
     public int getPhoneNumber() {
         return PhoneNumber;
     }
-}
+}*/

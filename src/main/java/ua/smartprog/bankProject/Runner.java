@@ -1,4 +1,4 @@
-
+/*
 package ua.smartprog.bankProject;
 public class Runner {
     public static void main(String[] args) {
@@ -19,4 +19,4 @@ public class Runner {
         System.out.println(office.getSalary());
         System.out.println(con.getSalary());
     }
-}
+}*/
