@@ -27,6 +27,6 @@ public class AccountTest {
         Account ac = new Account();
         ac.generateVCNumber();
         assertEquals(16, ac.generateVCNumber().length());
-        assertEquals("4", ac.getCardNumber().charAt(0));
+        assertEquals("4", String.valueOf(ac.getCardNumber().charAt(0)));
     }
 }
