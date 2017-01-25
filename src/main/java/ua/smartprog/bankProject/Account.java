@@ -47,8 +47,22 @@ public class Account {
         }
     }
 
-    public String generateVisaCardNumber(){
-        
+    public String generateVCNumber(){
+        Random rand = new Random();
+        StringBuilder num = new StringBuilder();
+        for (int i = 0; i < num.capacity(); i++) {
+            int temp = rand.nextInt(10) ;
+            if(i == num.length()){
+                temp = 4;
+            }
+            num.append(temp);
+        }
+        setCardNumber(num.toString());
+        return num.toString();
+    }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
     }
 
     public void setPassword(String password) {
