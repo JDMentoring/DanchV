@@ -1,7 +1,7 @@
-/*package ua.smartprog.bankProject;
+package ua.smartprog.bankProject;
 import java.util.Random;
 
-public class Customer extends Human {
+/*public class Customer extends Human {
     Random random = new Random();
     private Account CustomerAccount = new Account();
     private int PhoneNumber;
