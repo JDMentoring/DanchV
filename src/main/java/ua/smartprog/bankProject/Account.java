@@ -12,7 +12,47 @@ public class Account {
 
     public Account() {
         this.cardNumber = generateCardNumber();
-        generateDefaultPassword();
+        password = generateDefaultPassword();
+    }
+
+    public String generateDefaultPassword() {
+        //retrying
+        Random generator = new Random();
+        StringBuilder pass = new StringBuilder();
+        char _ = '_';
+        int check1 = 0;
+        int check2 = 0;
+        char[] nums = new char[10];
+        char[] sym = new char [26];
+        for (int i = 0; i < nums.length; i++){
+            nums[i] = (char)(i + 48);
+        }
+        for (int i = 0; i < sym.length; i++){
+            sym[i] = (char)(i + 97);
+        }
+        for(int i = 0; i < PASSLEN; i++){
+            int arrChoose = generator.nextInt(2);
+            if(i == 4){
+                pass.append("_");
+            }
+            else{
+                if(arrChoose == 0){
+                    pass.append(nums[generator.nextInt(9)]);
+                    check1 = 1;
+                }
+                else if(arrChoose == 1){
+                    pass.append(sym[generator.nextInt(25)]);
+                    check2 = 1;
+                }
+            }
+        }
+        System.out.println(pass);
+        if(check1 + check2 == 2){
+            return pass.toString();
+        }
+        else{
+            return generateDefaultPassword();
+        }
     }
 
 
@@ -82,10 +122,6 @@ public class Account {
 
     //start 1601
     //start 1601
-
-    public String generateDefaultPassword() {
-        //retrying
-    }
     //Dont know why is the mistake happening
 
 
