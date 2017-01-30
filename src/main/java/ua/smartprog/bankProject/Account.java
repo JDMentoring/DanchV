@@ -10,17 +10,16 @@ public class Account {
     private String cardNumber;
     private String password;
 
-    public Account(){
+    public Account() {
         this.cardNumber = generateCardNumber();
         generateDefaultPassword();
     }
 
 
     public int checkBalance() {
-        if(checkPassword()) {
+        if (checkPassword()) {
             return balance;
-        }
-        else{
+        } else {
             System.out.println("Access denied!!");
             return 0;
         }
@@ -50,11 +49,11 @@ public class Account {
         }
     }
 
-    public String generateVCNumber(){
+    public String generateVCNumber() {
         StringBuilder num = new StringBuilder();
         for (int i = 0; i < num.capacity(); i++) {
-            int temp = generator.nextInt(10) ;
-            if(i == num.length()){
+            int temp = generator.nextInt(10);
+            if (i == num.length()) {
                 temp = 4;
             }
             num.append(temp);
@@ -72,7 +71,7 @@ public class Account {
     }
 
     public String getPassword() {
-            return password;
+        return password;
     }
 
     public boolean checkPassword() {
@@ -84,40 +83,8 @@ public class Account {
     //start 1601
     //start 1601
 
-    public void generateDefaultPassword(){
-        int[] passarray = new int[PASSLEN];
-        int check1 = 0;
-        int check2 = 0;
-        int check3 = 0;
-        int diapason;
-        for (int i = 0; i < PASSLEN; i++) {
-            diapason = generator.nextInt(2);
-            if(diapason == 0){
-                passarray[i] = (char)95;
-                if(check1 == 0){
-                    check1 = 1;
-                }
-            }
-            else if(diapason == 1){
-                passarray[i] = (char)generator.nextInt(122) + 97;
-                if(check2 == 0){
-                    check2 = 1;
-                }
-            }
-            else if(diapason == 2){
-                passarray[i] = (char)generator.nextInt(48) + 57;
-                if(check3 == 0){
-                    check3 = 1;
-                }
-            }
-        }
-        System.out.println(passarray.toString());
-        if(check1 == 1 && check2 == 1 && check3 == 1){
-            this.password = passarray.toString();
-        }
-        else{
-            generateDefaultPassword();
-        }
+    public String generateDefaultPassword() {
+        //retrying
     }
     //Dont know why is the mistake happening
 
@@ -126,11 +93,11 @@ public class Account {
         return cardNumber;
     }
 
-    public String generateCardNumber(){
+    public String generateCardNumber() {
         Random rand = new Random();
         StringBuilder num = new StringBuilder();
         for (int i = 0; i < num.capacity(); i++) {
-            int temp = rand.nextInt(10) ;
+            int temp = rand.nextInt(10);
             num.append(temp);
         }
         return num.toString();
