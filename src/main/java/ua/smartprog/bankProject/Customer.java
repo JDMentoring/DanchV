@@ -1,9 +1,7 @@
 package ua.smartprog.bankProject;
-import java.util.Random;
 
 public class Customer extends Human {
-    Random random = new Random();
-    private Account CustomerAccount = new Account();
+    private Account[] CustomerAccount;
     private int PhoneNumber;
 
     public Customer() {
@@ -12,7 +10,9 @@ public class Customer extends Human {
         CustomerAccount.setMoney(20);
         CustomerAccount.generateCardNumber();
         CustomerAccount.generateVCNumber();
-
+        this.CustomerAccount = new Account[1];
+        Account defaultAccount = new Account();
+        CustomerAccount[0] = defaultAccount;
     }
 
     public Customer(String fName, String sName, int cAge, int phoneNumber, int Money) {
