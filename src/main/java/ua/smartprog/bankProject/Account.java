@@ -84,7 +84,7 @@ public class Account {
             }
         }
     }
-
+//start refactoring account
     public String generateDefaultPassword() {
         //retrying
         final int PASSLEN = 8;
