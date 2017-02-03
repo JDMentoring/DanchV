@@ -1,44 +1,56 @@
 package ua.smartprog.bankProject;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Customer extends Human {
-    private Account[] CustomerAccount;
-    int account_num = 0;
-    private int PhoneNumber;
+    private ArrayList<Account> customerAccount;
+    private int phoneNumber;
 
     public Customer() {
-        PhoneNumber = 0;
-        this.CustomerAccount = new Account[account_num + 1];
-        CustomerAccount[account_num].addMoney(20);
-        CustomerAccount[account_num].generateCardNumber();
-        CustomerAccount[account_num].generateVCNumber();
-        this.CustomerAccount = new Account[1];
-        Account defaultAccount = new Account();
-        CustomerAccount[0] = defaultAccount;
-        System.out.println("It's account number " + (account_num + 1));
+        super();
+        this.customerAccount = new ArrayList<Account>();
+        this.customerAccount.ensureCapacity(1);
+        this.customerAccount.add(new Account());
     }
 
-    public Customer(String fName, String sName, int cAge, int phoneNumber, int Money) {
-        super(fName, sName, cAge);
-        PhoneNumber = phoneNumber;
-        this.CustomerAccount = new Account[account_num + 1];
-        CustomerAccount[account_num].addMoney(Money);
-        CustomerAccount[account_num].generateCardNumber();
-        CustomerAccount[account_num].generateVCNumber();
+    public Customer(String fname, String sname, int age, int phoneNumber, int money, String pass) {
+        super(fname, sname, age);
+        this.phoneNumber = phoneNumber;
+        this.customerAccount = new ArrayList<Account>();
+        this.customerAccount.ensureCapacity(1);
+
+        this.customerAccount.add(new Account(money, pass));
     }
 
     public void setPhoneNumber(int phoneNumber) {
-        PhoneNumber = phoneNumber;
+        this.phoneNumber = phoneNumber;
     }
 
-    public void setMoney(int ammount, int numOfAcc){
-        CustomerAccount[numOfAcc].addMoney(ammount);
+    public void openVisaAccount() {
+        this.customerAccount.add(new Account("VISA", 0, Account.generateDefaultPassword()));
     }
 
-    public int getMoney(int numOfAcc){
-        return CustomerAccount[numOfAcc].checkBalance();
+    public void openAccount() {
+        this.customerAccount.add(new Account(0, Account.generateDefaultPassword()));
     }
-    public void CusTransaction(int ammount, Account num2){
-        CustomerAccount[account_num].takeMoney(ammount);
-        num2.addMoney(ammount);
+
+    public void closeAccount() {
+        this.customerAccount.remove(chosseAccount());
+    }
+
+    public int chosseAccount() {
+        Scanner indexScan = new Scanner(System.in);
+        int index;
+
+        for (int i = 0; i < this.customerAccount.size(); i++) {
+            this.customerAccount.get(i).shortInfo();
+        }
+
+        do {
+            index = indexScan.nextInt();
+        }
+        while (index < 0 && index > this.customerAccount.size());
+        return index;
     }
 }

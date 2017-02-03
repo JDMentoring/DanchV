@@ -86,7 +86,7 @@ public class Account {
     }
 
     //finish refactor
-    public String generateDefaultPassword() {
+    public static String generateDefaultPassword() {
         //retrying
         final int PASSLEN = 8;
         Random generator = new Random();
@@ -112,7 +112,6 @@ public class Account {
                 check[diapason] = 1;
             }
         }
-        System.out.println(pass);
         if (check[0] + check[1] + check[2] == 3) {
             return pass.toString();
         } else {
@@ -129,5 +128,9 @@ public class Account {
         Scanner passScan = new Scanner(System.in);
         String tempPassword = passScan.next();
         return tempPassword.equals(this.password);
+    }
+
+    public void shortInfo(){
+        System.out.println("Number: "+this.cardNumber);
     }
 }
