@@ -84,39 +84,36 @@ public class Account {
             }
         }
     }
-//start refactoring account
+
+    //finish refactor
     public String generateDefaultPassword() {
         //retrying
         final int PASSLEN = 8;
         Random generator = new Random();
         StringBuilder pass = new StringBuilder();
         char otherSymbol = '_';
-        int[] check = new int[2];
-        char[] nums = new char[10];
-        char[] sym = new char[26];
-
-        for (int i = 0; i < nums.length; i++) {
-            nums[i] = (char) (i + 48);
-        }
-        for (int i = 0; i < sym.length; i++) {
-            sym[i] = (char) (i + 97);
-        }
+        int[] check = new int[3];
+        String syms = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String nums = "1234567890";
+        int diapason = 0;
         for (int i = 0; i < PASSLEN; i++) {
-            int arrChoose = generator.nextInt(2);
-            if (i == 4) {
+            diapason = generator.nextInt(3);
+            if (diapason == 2) {
                 pass.append(otherSymbol);
-            } else {
-                if (arrChoose == 0) {
-                    pass.append(nums[generator.nextInt(9)]);
-                    check[0] = 1;
-                } else if (arrChoose == 1) {
-                    pass.append(sym[generator.nextInt(25)]);
-                    check[1] = 1;
-                }
+                check[diapason] = 1;
+
+
+            } else if (diapason == 1){
+                 pass.append(syms.charAt(generator.nextInt(syms.length())));
+                check[diapason] = 1;
+            }
+            else {
+                pass.append(nums.charAt(generator.nextInt(nums.length())));
+                check[diapason] = 1;
             }
         }
         System.out.println(pass);
-        if (check[0] + check[1] == 2) {
+        if (check[0] + check[1] + check[2] == 3) {
             return pass.toString();
         } else {
             return generateDefaultPassword();
@@ -125,7 +122,7 @@ public class Account {
 
     public void resetPassword(String password) {
         System.out.println("Put the current password to chandge it : ");
-        if(checkPassword()) this.password = password;
+        if (checkPassword()) this.password = password;
     }
 
     public boolean checkPassword() {
