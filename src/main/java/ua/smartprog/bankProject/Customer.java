@@ -15,6 +15,8 @@ public class Customer extends Human {
         CustomerAccount[0] = defaultAccount;
     }
 
+    //start refactoring
+
     public Customer(String fName, String sName, int cAge, int phoneNumber, int Money) {
         super(fName, sName, cAge);
         PhoneNumber = phoneNumber;
