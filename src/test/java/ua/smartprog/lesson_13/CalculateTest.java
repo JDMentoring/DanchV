@@ -1,4 +1,4 @@
-package ua.smartprog.lesson_13;
+/*package ua.smartprog.lesson_13;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -11,4 +11,4 @@ public class CalculateTest {
         assertEquals(19, calc.addition(exp));
     }
 
-}
+}*/

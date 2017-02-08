@@ -1,46 +1,57 @@
 package ua.smartprog.bankProject;
-import java.util.Random;
+
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Customer extends Human {
-    Random random = new Random();
-    private Account CustomerAccount = new Account();
-    private int PhoneNumber;
+    private ArrayList<Account> customerAccount;
+    private int phoneNumber;
 
     public Customer() {
-        PhoneNumber = 0;
-        this.CustomerAccount = new Account();
-        CustomerAccount.setMoney(20);
-        CustomerAccount.generateCardNumber();
-        CustomerAccount.generateVCNumber();
-
+        super();
+        this.customerAccount = new ArrayList<Account>();
+        this.customerAccount.ensureCapacity(1);
+        this.customerAccount.add(new Account());
     }
 
-    //start refactoring
+    public Customer(String fname, String sname, int age, int phoneNumber, int money, String pass) {
+        super(fname, sname, age);
+        this.phoneNumber = phoneNumber;
+        this.customerAccount = new ArrayList<Account>();
+        this.customerAccount.ensureCapacity(1);
 
-    public Customer(String fName, String sName, int cAge, int phoneNumber) {
-        super(fName, sName, cAge);
-        PhoneNumber = phoneNumber;
-        this.CustomerAccount = new Account();
-
+        this.customerAccount.add(new Account(money, pass));
     }
 
     public void setPhoneNumber(int phoneNumber) {
-        PhoneNumber = phoneNumber;
+        this.phoneNumber = phoneNumber;
     }
 
-    public void setMoney(int ammount){
-        CustomerAccount.setMoney(ammount);
+    public void openVisaAccount() {
+        this.customerAccount.add(new Account("VISA", 0, Account.generateDefaultPassword()));
+    }
+    // TODO Task 1901
+    public void openAccount() {
+        this.customerAccount.add(new Account(0, Account.generateDefaultPassword()));
+    }
+    // TODO Task 1901
+    public void closeAccount() {
+        this.customerAccount.remove(chosseAccount());
     }
 
-    public int getMoney(){
-        return CustomerAccount.checkBalance();
-    }
-    public void CusTransaction(int i, Customer num2){
-        setMoney(getMoney() - i);
-        num2.setMoney(num2.getMoney() + i);
-    }
+    // TODO Task 1901
+    public int chosseAccount() {
+        Scanner indexScan = new Scanner(System.in);
+        int index;
 
-    public int getPhoneNumber() {
-        return PhoneNumber;
+        for (int i = 0; i < this.customerAccount.size(); i++) {
+            this.customerAccount.get(i).shortInfo();
+        }
+
+        do {
+            index = indexScan.nextInt();
+        }
+        while (index < 0 && index > this.customerAccount.size());
+        return index;
     }
 }

@@ -1,4 +1,4 @@
-package ua.smartprog.bankProject;
+/*package ua.smartprog.bankProject;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -29,4 +29,4 @@ public class AccountTest {
         assertEquals(16, ac.generateVCNumber().length());
         assertEquals("4", String.valueOf(ac.getCardNumber().charAt(0)));
     }
-}
+}*/

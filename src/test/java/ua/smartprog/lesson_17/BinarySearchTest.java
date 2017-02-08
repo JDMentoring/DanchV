@@ -1,4 +1,4 @@
-package ua.smartprog.lesson_17;
+/*package ua.smartprog.lesson_17;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -45,4 +45,4 @@ public class BinarySearchTest {
         numbers[numbers.length - 2] = searchValue;
         assertTrue(bs2.searchBinary(searchValue, numbers));
     }
-}
+}*/
