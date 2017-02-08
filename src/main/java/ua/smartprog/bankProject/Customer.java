@@ -30,15 +30,16 @@ public class Customer extends Human {
     public void openVisaAccount() {
         this.customerAccount.add(new Account("VISA", 0, Account.generateDefaultPassword()));
     }
-
+    // TODO Task 1901
     public void openAccount() {
         this.customerAccount.add(new Account(0, Account.generateDefaultPassword()));
     }
-
+    // TODO Task 1901
     public void closeAccount() {
         this.customerAccount.remove(chosseAccount());
     }
 
+    // TODO Task 1901
     public int chosseAccount() {
         Scanner indexScan = new Scanner(System.in);
         int index;
