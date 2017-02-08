@@ -44,4 +44,9 @@ public class Manager extends Employee {
 
         BankName = bankName;
     }
+
+    public void setSalary(int salary) {
+
+    }
+
 }

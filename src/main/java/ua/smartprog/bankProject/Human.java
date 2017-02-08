@@ -1,40 +1,40 @@
 package ua.smartprog.bankProject;
 public class Human {
-        private String FirstName;
-        private String SecondName;
-        private int Age;
+        private String firstName;
+        private String secondName;
+        private int age;
         public Human(){
-            FirstName = "Eric";
-            SecondName = "Martin";
-            Age = 30;
+            firstName = "Eric";
+            secondName = "Martin";
+            age = 30;
         }
         public Human(String fName, String sName, int cAge){
-            FirstName = fName;
-            SecondName = sName;
-            Age = cAge;
+            firstName = fName;
+            secondName = sName;
+            age = cAge;
         }
 
         public void setAge(int age) {
-            this.Age = age;
+            this.age = age;
         }
 
         public void setFirstName(String firstName) {
-            FirstName = firstName;
+            this.firstName = firstName;
         }
 
         public void setSecondName(String secondName) {
-            SecondName = secondName;
+            this.secondName = secondName;
         }
 
         public String getFirstName() {
-            return FirstName;
+            return firstName;
         }
 
         public String getSecondName(){
-            return SecondName;
+            return secondName;
         }
 
         public int getAge() {
-            return Age;
+            return age;
         }
 }
