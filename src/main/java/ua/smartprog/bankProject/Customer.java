@@ -15,13 +15,13 @@ public class Customer extends Human {
 
     }
 
-    public Customer(String fName, String sName, int cAge, int phoneNumber, int Money) {
+    //start refactoring
+
+    public Customer(String fName, String sName, int cAge, int phoneNumber) {
         super(fName, sName, cAge);
         PhoneNumber = phoneNumber;
         this.CustomerAccount = new Account();
-        CustomerAccount.setMoney(Money);
-        CustomerAccount.generateCardNumber();
-        CustomerAccount.generateVCNumber();
+
     }
 
     public void setPhoneNumber(int phoneNumber) {
