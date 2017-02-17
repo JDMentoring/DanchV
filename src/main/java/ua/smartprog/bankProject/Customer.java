@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Customer extends Human {
     private ArrayList<Account> customerAccount;
-    private int phoneNumber;
+    private String phoneNumber;
 
     public Customer() {
         super();
@@ -14,7 +14,7 @@ public class Customer extends Human {
         this.customerAccount.add(new Account());
     }
 
-    public Customer(String fname, String sname, int age, int phoneNumber, int money, String pass) {
+    public Customer(String fname, String sname, int age, String phoneNumber, int money, String pass) {
         super(fname, sname, age);
         this.phoneNumber = phoneNumber;
         this.customerAccount = new ArrayList<Account>();
@@ -23,7 +23,7 @@ public class Customer extends Human {
         this.customerAccount.add(new Account(money, pass));
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -53,5 +53,12 @@ public class Customer extends Human {
         }
         while (index < 0 && index > this.customerAccount.size());
         return index;
+    }
+    public String ToString(){
+        return "Custemer[First Name = " + getFirstName()
+                + ", Second Name = " + getSecondName()
+                + ", Age = " + getAge()
+                + ", Phone Number = " + phoneNumber
+                + "]";
     }
 }

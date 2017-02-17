@@ -130,6 +130,12 @@ public class Account {
         return tempPassword.equals(this.password);
     }
 
+    public String ToString(){
+        return "Account[Card number = " + cardNumber
+                + ", Balance = " + balance
+                + "]";
+    }
+
     public void shortInfo(){
         System.out.println("Number: "+this.cardNumber);
     }

@@ -9,6 +9,7 @@ public class Consulter extends Employee {
     }
 
     public Consulter(int experience) {
+        super();
         this.experience = experience;
         setSalary(1000);
     }
@@ -24,5 +25,9 @@ public class Consulter extends Employee {
 
     public void setExperience(int experience) {
         this.experience = experience;
+    }
+    public String ToString(){
+        Employee forToString = new Employee();
+        return forToString.ToString() + "Expirience = " + experience + "]";
     }
 }

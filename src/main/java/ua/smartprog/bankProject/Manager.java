@@ -1,18 +1,22 @@
 package ua.smartprog.bankProject;
 
+import java.util.prefs.BackingStoreException;
+
 public class Manager extends Employee {
-    private int Tax;
-    private String BankName;
+    private int tax;
+    private String bankName;
 
     public Manager() {
-        Tax = 300;
-        BankName = "MyBank";
+        super();
+        tax = 300;
+        bankName = "MyBank";
         setSalary(8000);
     }
 
     public Manager(String fName, String sName, int cAge, int ID, int Sal, String bankName) {
         super(fName, sName, cAge, ID, Sal);
-        BankName = bankName;
+        tax = 300;
+        this.bankName = bankName;
         setSalary(8000);
     }
 
@@ -33,19 +37,26 @@ public class Manager extends Employee {
     }
 
     public String getBankName() {
-        return BankName;
+        return bankName;
     }
 
     public void setBankName(String bankName) {
-        BankName = bankName;
+        this.bankName = bankName;
     }
 
     public Manager(String bankName) {
 
-        BankName = bankName;
+        this.bankName = bankName;
     }
 
     public void setSalary(int salary) {
+
+    }
+    public String ToString(){
+        Employee forToString = new Employee();
+        return forToString.ToString() + ", Tax = " + tax
+                + ", Bank Name = " + bankName
+                + "]";
 
     }
 

@@ -37,4 +37,10 @@ public class Human {
         public int getAge() {
             return age;
         }
+    public String ToString(){
+        return "Human[First Name = " + firstName
+                + ", Second Name = " + secondName
+                + ", Age = " + age
+                + "]";
+    }
 }
