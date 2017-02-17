@@ -14,7 +14,7 @@ public class Employee extends Human {
         salary = 0;
         workDays = 0;
     }
-
+//start ToString
     /**
      *
      * @param fName - імя
