@@ -1,0 +1,7 @@
+2017-02-22 22:35:39 INFO  DatabaseConnection:21 - JDBC Driver is loaded
+2017-02-22 22:35:40 INFO  DatabaseConnection:28 - Connect to database successful!!!
+2017-02-22 22:36:21 INFO  DatabaseConnection:21 - JDBC Driver is loaded
+2017-02-22 22:36:22 INFO  DatabaseConnection:28 - Connect to database successful!!!
+2017-02-22 22:37:23 INFO  DatabaseConnection:21 - JDBC Driver is loaded
+2017-02-22 22:37:24 ERROR DatabaseConnection:30 - Can't connect to database!!!
+2017-02-22 22:37:24 ERROR DatabaseConnection:31 - Access denied for user 'servlab_danoop'@'%' to database 'servab_danoop'

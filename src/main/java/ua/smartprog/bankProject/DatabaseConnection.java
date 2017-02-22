@@ -1,29 +1,34 @@
 package ua.smartprog.bankProject;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import org.apache.log4j.Logger;
 
 public class DatabaseConnection {
     private static final String DRIVERNAME = "com.mysql.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://servlab.mysql.ukraine.com.ua:3306/servlab_danoop";
+    private static final String URL = "jdbc:mysql://servlab.mysql.ukraine.com.ua:3306/servab_danoop";
     private static final String USERNAME = "servlab_danoop";
     private static final String PASSWORD = "pmyqjlhz";
+
+    private static final String INSERT_NEW_CUSTOMER = "INSERT INTO Customer (Name, Surname) VALUES(?,?)";
+
+    private static final Logger log = Logger.getLogger(DatabaseConnection.class);
+
 
     public static Connection getConnection() {
         Connection connection = null;
         try {
             Class.forName(DRIVERNAME); // Рефлексія
+            log.info("JDBC Driver is loaded");
         } catch (ClassNotFoundException e) {
-            System.out.println(e.getMessage());
-            System.out.println("Driver not found!!!");
+            log.error("JDBC Driver not found!!!");
+            log.error(e.getMessage());
         }
         try {
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            log.info("Connect to database successful!!!");
         } catch (SQLException e) {
-            System.out.println("Can't connect to database!!!");
-            System.out.println(e.getMessage());
+            log.error("Can't connect to database!!!");
+            log.error(e.getMessage());
         }
         return connection;
     }
@@ -68,7 +73,7 @@ public class DatabaseConnection {
                 "`cardNumber` ," +
                 "`password`)"
                 + "\n VALUES " +
-                "( '" + infoobj.balance + "', '"  + infoobj.cardNumber + "', '" + infoobj.password + "');";
+                "( '" + infoobj.balance + "', '" + infoobj.cardNumber + "', '" + infoobj.password + "');";
 
         try {
             connection = getConnection();
@@ -89,4 +94,62 @@ public class DatabaseConnection {
         }
     }
 
+    public static void createCurtomerPS() throws SQLException {
+        Connection connection = null;
+        PreparedStatement prStatement = null;
+
+        try {
+            connection = getConnection();
+            prStatement = connection.prepareStatement(INSERT_NEW_CUSTOMER);
+            prStatement.setString(1, "Nazar");
+            prStatement.setString(2, "Mykhailiv");
+            prStatement.execute();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (prStatement != null) {
+                prStatement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        }
+    }
+
+    public static void getCustomers() throws SQLException {
+        Connection connection = null;
+        Statement statement = null;
+
+        String selectQuery = "SELECT * FROM Customer";
+
+
+        try {
+            connection = getConnection();
+            statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(selectQuery);
+
+            System.out.println("ID\tNAME\tSURNAME");
+            while (rs.next()) {
+                Customer tempCM = new Customer();
+                int userID = rs.getInt("id");
+                tempCM.setFirstName(rs.getString("Name"));
+                tempCM.setSecondName(rs.getString("Surname"));
+
+                System.out.println(userID + "\t" + tempCM.getFirstName() + "\t" + tempCM.getSecondName());
+
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        }
+    }
+
 }
+

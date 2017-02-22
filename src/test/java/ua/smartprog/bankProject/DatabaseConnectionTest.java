@@ -6,11 +6,29 @@ import static org.junit.Assert.*;
 
 public class DatabaseConnectionTest {
     @Test
+    public void getCustomers() throws Exception {
+
+
+    }
+
+    @Test
+    public void createCurtomerPSTest() throws Exception {
+        DatabaseConnection.getCustomers();
+
+        DatabaseConnection.createCurtomerPS();
+        System.out.println("After query\n");
+
+        DatabaseConnection.getCustomers();
+
+
+    }
+
+    @Test
     public void getConnection() throws Exception {
 
-        //assertNotEquals(null,DatabaseConnection.getConnection());
+        DatabaseConnection.getConnection();
 
-        DatabaseConnection.createUserTable();
+       // DatabaseConnection.createUserTable();
     }
     @Test
     public void rowAddTest() throws Exception {
