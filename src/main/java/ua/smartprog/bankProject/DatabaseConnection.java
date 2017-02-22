@@ -57,7 +57,36 @@ public class DatabaseConnection {
             }
         }
     }
-    //start creating rows
 
+    //start creating rows
+    public static void addTableRow(Account infoobj) throws SQLException {
+        Connection connection = null;
+        Statement statement = null;
+
+        String createTableRow = "INSERT INTO `servlab_danoop`.`Account` \n" + "(" +
+                "`balance` ," +
+                "`cardNumber` ," +
+                "`password`)"
+                + "\n VALUES " +
+                "( '" + infoobj.balance + "', '"  + infoobj.cardNumber + "', '" + infoobj.password + "');";
+
+        try {
+            connection = getConnection();
+            statement = connection.createStatement();
+            statement.execute(createTableRow);
+            System.out.println("Row was added!!!");
+        } catch (SQLException e) {
+            System.out.println("Row wasn't added!!!");
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        }
+    }
 
 }

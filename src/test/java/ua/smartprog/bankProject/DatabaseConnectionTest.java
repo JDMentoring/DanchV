@@ -12,5 +12,10 @@ public class DatabaseConnectionTest {
 
         DatabaseConnection.createUserTable();
     }
+    @Test
+    public void rowAddTest() throws Exception {
+        Account obj1 = new Account();
+        DatabaseConnection.addTableRow(obj1);
+    }
 
 }

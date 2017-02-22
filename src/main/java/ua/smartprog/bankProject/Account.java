@@ -4,9 +4,9 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Account {
-    private String cardNumber;
-    private int balance;
-    private String password;
+    public String cardNumber;
+    public int balance;
+    public String password;
 
     public Account() {
         this.cardNumber = generateCardNumber();
@@ -125,6 +125,7 @@ public class Account {
     }
 
     public boolean checkPassword() {
+        System.out.println("InsertPassword");
         Scanner passScan = new Scanner(System.in);
         String tempPassword = passScan.next();
         return tempPassword.equals(this.password);
