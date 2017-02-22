@@ -32,7 +32,7 @@ public class DatabaseConnection {
         Connection connection = null;
         Statement statement = null;
 
-        String createTableMYSQL = "CREATE TABLE `ervlab_danoop`.`Customer` (\n" +
+        String createTableMYSQL = "CREATE TABLE `servlab_danoop`.`Customer` (\n" +
                 "  `Name` VARCHAR(20) NOT NULL,\n" +
                 "  `Surname` VARCHAR(45) NULL,\n" +
                 "  PRIMARY KEY (`Name`))\n" +
@@ -57,6 +57,7 @@ public class DatabaseConnection {
             }
         }
     }
+    //start creating rows
 
 
 }
