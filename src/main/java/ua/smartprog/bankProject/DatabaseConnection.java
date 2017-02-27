@@ -3,6 +3,9 @@ package ua.smartprog.bankProject;
 import java.sql.*;
 import org.apache.log4j.Logger;
 
+import javax.management.Query;
+import javax.xml.transform.Result;
+
 public class DatabaseConnection {
     private static final String DRIVERNAME = "com.mysql.jdbc.Driver";
     private static final String URL = "jdbc:mysql://servlab.mysql.ukraine.com.ua:3306/servab_danoop";
@@ -10,7 +13,10 @@ public class DatabaseConnection {
     private static final String PASSWORD = "pmyqjlhz";
 
     private static final String INSERT_NEW_CUSTOMER = "INSERT INTO Customer (Name, Surname) VALUES(?,?)";
-    //start
+    private static final String UPDATE_ACCOUNT_DB = "UPDATE Account \n" +
+            "SET balance = ?, password = ? \n" +
+            "WHERE password = ?";
+
 
     private static final Logger log = Logger.getLogger(DatabaseConnection.class);
 
@@ -114,6 +120,41 @@ public class DatabaseConnection {
             if (connection != null) {
                 connection.close();
             }
+        }
+    }
+//stop
+    public static void setUpdateAccountDb(int  balance, String cardNumber, String newPassword, String oldPassword) throws SQLException {
+        Connection connection = null;
+        PreparedStatement prStatement = null;
+        Statement statement = null;
+        String PrepearedSelectQuery = "SELECT * FROM Account.password \n" +
+                "WHERE password = ? , cardNumber = ?";
+        prStatement = connection.prepareStatement(PrepearedSelectQuery);
+        prStatement.setString(1, oldPassword);
+        prStatement.setString(2, cardNumber);
+        prStatement.execute();
+        ResultSet rs = statement.executeQuery(selectQuery);
+        if(rs.toString() == oldPassword) {
+            try {
+                connection = getConnection();
+                prStatement = connection.prepareStatement(UPDATE_ACCOUNT_DB);
+                prStatement.setInt(1, balance);
+                prStatement.setString(2, newPassword);
+                prStatement.setString(3, oldPassword);
+                prStatement.execute();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            } finally {
+                if (prStatement != null) {
+                    prStatement.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            }
+        }
+        else{
+            System.out.println("Access denied!!!");
         }
     }
 
