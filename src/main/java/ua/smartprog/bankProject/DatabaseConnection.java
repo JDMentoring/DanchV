@@ -1,10 +1,8 @@
 package ua.smartprog.bankProject;
 
 import java.sql.*;
-import org.apache.log4j.Logger;
 
-import javax.management.Query;
-import javax.xml.transform.Result;
+import org.apache.log4j.Logger;
 
 public class DatabaseConnection {
     private static final String DRIVERNAME = "com.mysql.jdbc.Driver";
@@ -122,27 +120,28 @@ public class DatabaseConnection {
             }
         }
     }
-    public static void UpdateAccountDb(int  balance, String cardNumber, String newPassword, String oldPassword) throws SQLException {
+
+    public static void UpdateAccountDb(int balance, String cardNumber, String newPassword, String oldPassword) throws SQLException {
         Connection connection = null;
         PreparedStatement prStatement = null;
         try {
-                connection = getConnection();
-                prStatement = connection.prepareStatement(UPDATE_ACCOUNT_DB);
-                prStatement.setInt(1, balance);
-                prStatement.setString(2, newPassword);
-                prStatement.setString(3, oldPassword);
-                prStatement.setString(4, cardNumber);
-                prStatement.execute();
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-            } finally {
-                if (prStatement != null) {
-                    prStatement.close();
-                }
-                if (connection != null) {
-                    connection.close();
-                }
+            connection = getConnection();
+            prStatement = connection.prepareStatement(UPDATE_ACCOUNT_DB);
+            prStatement.setInt(1, balance);
+            prStatement.setString(2, newPassword);
+            prStatement.setString(3, oldPassword);
+            prStatement.setString(4, cardNumber);
+            prStatement.execute();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (prStatement != null) {
+                prStatement.close();
             }
+            if (connection != null) {
+                connection.close();
+            }
+        }
     }
 
     public static void getCustomers() throws SQLException {

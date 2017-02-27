@@ -131,7 +131,7 @@ public class Account {
         return tempPassword.equals(this.password);
     }
 
-    public String ToString(){
+    public String toString(){
         return "Account[Card number = " + cardNumber
                 + ", Balance = " + balance
                 + "]";

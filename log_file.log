@@ -23,3 +23,24 @@
 2017-02-27 18:56:33 INFO  DatabaseConnection:28 - JDBC Driver is loaded
 2017-02-27 18:56:34 ERROR DatabaseConnection:37 - Can't connect to database!!!
 2017-02-27 18:56:34 ERROR DatabaseConnection:38 - Access denied for user 'servlab_danoop'@'%' to database 'servab_danoop'
+2017-02-27 19:06:26 INFO  DatabaseConnection:29 - JDBC Driver is loaded
+2017-02-27 19:06:26 ERROR DatabaseConnection:38 - Can't connect to database!!!
+2017-02-27 19:06:26 ERROR DatabaseConnection:39 - Access denied for user 'servlab_danoop'@'%' to database 'servab_danoop'
+2017-02-27 19:12:20 INFO  DatabaseConnection:26 - JDBC Driver is loaded
+2017-02-27 19:12:20 ERROR DatabaseConnection:35 - Can't connect to database!!!
+2017-02-27 19:12:20 ERROR DatabaseConnection:36 - Access denied for user 'servlab_danoop'@'%' to database 'servab_danoop'
+2017-02-27 19:15:06 INFO  DatabaseConnection:26 - JDBC Driver is loaded
+2017-02-27 19:15:06 ERROR DatabaseConnection:35 - Can't connect to database!!!
+2017-02-27 19:15:06 ERROR DatabaseConnection:36 - Access denied for user 'servlab_danoop'@'%' to database 'servab_danoop'
+2017-02-27 19:16:28 INFO  DatabaseConnection:26 - JDBC Driver is loaded
+2017-02-27 19:16:29 ERROR DatabaseConnection:35 - Can't connect to database!!!
+2017-02-27 19:16:29 ERROR DatabaseConnection:36 - Access denied for user 'servlab_danoop'@'%' to database 'servab_danoop'
+2017-02-27 19:23:03 INFO  DatabaseConnection:26 - JDBC Driver is loaded
+2017-02-27 19:23:04 ERROR DatabaseConnection:35 - Can't connect to database!!!
+2017-02-27 19:23:04 ERROR DatabaseConnection:36 - Access denied for user 'servlab_danoop'@'%' to database 'servab_danoop'
+2017-02-27 21:04:26 INFO  DatabaseConnection:26 - JDBC Driver is loaded
+2017-02-27 21:04:27 ERROR DatabaseConnection:35 - Can't connect to database!!!
+2017-02-27 21:04:27 ERROR DatabaseConnection:36 - Access denied for user 'servlab_danoop'@'%' to database 'servab_danoop'
+2017-02-27 21:11:56 INFO  DatabaseConnection:26 - JDBC Driver is loaded
+2017-02-27 21:11:57 ERROR DatabaseConnection:35 - Can't connect to database!!!
+2017-02-27 21:11:57 ERROR DatabaseConnection:36 - Access denied for user 'servlab_danoop'@'%' to database 'servab_danoop'

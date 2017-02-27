@@ -14,13 +14,9 @@ public class DatabaseConnectionTest {
     @Test
     public void createCurtomerPSTest() throws Exception {
         DatabaseConnection.getCustomers();
-
-        DatabaseConnection.createCurtomerPS();
+        //DatabaseConnection.createCurtomerPS();
         System.out.println("After query\n");
-
-        DatabaseConnection.getCustomers();
-
-
+        //DatabaseConnection.getCustomers();
     }
 
     @Test
@@ -28,8 +24,9 @@ public class DatabaseConnectionTest {
 
         DatabaseConnection.getConnection();
 
-       // DatabaseConnection.createUserTable();
+        // DatabaseConnection.createUserTable();
     }
+
     @Test
     public void rowAddTest() throws Exception {
         Account obj1 = new Account();
