@@ -122,7 +122,6 @@ public class DatabaseConnection {
             }
         }
     }
-//stop
     public static void setUpdateAccountDb(int  balance, String cardNumber, String newPassword, String oldPassword) throws SQLException {
         Connection connection = null;
         PreparedStatement prStatement = null;
