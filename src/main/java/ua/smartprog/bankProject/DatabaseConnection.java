@@ -10,6 +10,7 @@ public class DatabaseConnection {
     private static final String PASSWORD = "pmyqjlhz";
 
     private static final String INSERT_NEW_CUSTOMER = "INSERT INTO Customer (Name, Surname) VALUES(?,?)";
+    //start
 
     private static final Logger log = Logger.getLogger(DatabaseConnection.class);
 
