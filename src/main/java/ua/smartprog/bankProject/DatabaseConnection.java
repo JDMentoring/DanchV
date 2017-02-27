@@ -15,7 +15,7 @@ public class DatabaseConnection {
     private static final String INSERT_NEW_CUSTOMER = "INSERT INTO Customer (Name, Surname) VALUES(?,?)";
     private static final String UPDATE_ACCOUNT_DB = "UPDATE Account \n" +
             "SET balance = ?, password = ? \n" +
-            "WHERE password = ?";
+            "WHERE password = ? / cardNumber = ?";
 
 
     private static final Logger log = Logger.getLogger(DatabaseConnection.class);
@@ -122,24 +122,16 @@ public class DatabaseConnection {
             }
         }
     }
-    public static void setUpdateAccountDb(int  balance, String cardNumber, String newPassword, String oldPassword) throws SQLException {
+    public static void UpdateAccountDb(int  balance, String cardNumber, String newPassword, String oldPassword) throws SQLException {
         Connection connection = null;
         PreparedStatement prStatement = null;
-        Statement statement = null;
-        String PrepearedSelectQuery = "SELECT * FROM Account.password \n" +
-                "WHERE password = ? , cardNumber = ?";
-        prStatement = connection.prepareStatement(PrepearedSelectQuery);
-        prStatement.setString(1, oldPassword);
-        prStatement.setString(2, cardNumber);
-        prStatement.execute();
-        ResultSet rs = statement.executeQuery(selectQuery);
-        if(rs.toString() == oldPassword) {
-            try {
+        try {
                 connection = getConnection();
                 prStatement = connection.prepareStatement(UPDATE_ACCOUNT_DB);
                 prStatement.setInt(1, balance);
                 prStatement.setString(2, newPassword);
                 prStatement.setString(3, oldPassword);
+                prStatement.setString(4, cardNumber);
                 prStatement.execute();
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
@@ -151,10 +143,6 @@ public class DatabaseConnection {
                     connection.close();
                 }
             }
-        }
-        else{
-            System.out.println("Access denied!!!");
-        }
     }
 
     public static void getCustomers() throws SQLException {

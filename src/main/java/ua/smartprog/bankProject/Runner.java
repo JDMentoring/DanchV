@@ -8,13 +8,17 @@ public class Runner {
         Officer office  = new Officer();
         Consulter con = new Consulter();
         Account firs = new Account();
-        firs.generateDefaultPassword();
+        System.out.println(office.getSalary());
+        System.out.println(con.getSalary());
         try {
-            DatabaseConnection.addTableRow(firs);
+            DatabaseConnection.createCurtomerPS();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println(office.getSalary());
-        System.out.println(con.getSalary());
+        try {
+            DatabaseConnection.UpdateAccountDb(20, "4885605797534250", "0_b__U__", "12348765");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
