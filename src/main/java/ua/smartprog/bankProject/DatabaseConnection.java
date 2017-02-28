@@ -6,9 +6,9 @@ import org.apache.log4j.Logger;
 
 public class DatabaseConnection {
     private static final String DRIVERNAME = "com.mysql.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://servlab.mysql.ukraine.com.ua:3306/servab_danoop";
-    private static final String USERNAME = "servlab_danoop";
-    private static final String PASSWORD = "pmyqjlhz";
+    private static final String URL = "jdbc:mysql://localhost:3306/danulo";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "root";
 
     private static final String INSERT_NEW_CUSTOMER = "INSERT INTO Customer (Name, Surname) VALUES(?,?)";
     private static final String UPDATE_ACCOUNT_DB = "UPDATE Account \n" +
