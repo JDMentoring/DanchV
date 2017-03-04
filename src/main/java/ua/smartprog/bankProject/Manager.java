@@ -40,6 +40,11 @@ public class Manager extends Employee {
         return bankName;
     }
 
+    public void createCustomerAccount(Customer cus) {
+        Officer off1 = new Officer();
+        off1.createCustomerAccount(cus);
+    }
+
     public void setBankName(String bankName) {
         this.bankName = bankName;
     }

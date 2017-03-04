@@ -38,7 +38,6 @@ public class Customer extends Human {
     public void closeAccount() {
         this.customerAccount.remove(chosseAccount());
     }
-
     // TODO Task 1901
     public int chosseAccount() {
         Scanner indexScan = new Scanner(System.in);

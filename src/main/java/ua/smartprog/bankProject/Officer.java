@@ -1,10 +1,13 @@
 package ua.smartprog.bankProject;
 
+import com.sun.corba.se.spi.ior.MakeImmutable;
+
 import java.util.Random;
 
-public class Officer extends Employee {
+public class Officer extends Employee{
     private int workplaceNumber;
     Random random = new Random();
+    Manager managersCommand = new Manager();
 
     public Officer() {
         workplaceNumber = random.nextInt(300) + 1;
@@ -14,6 +17,10 @@ public class Officer extends Employee {
     public Officer(int wNumber) {
         this.workplaceNumber = wNumber;
         setSalary(2000);
+    }
+
+    public void createCustomerAccount(Customer cus){
+        cus.openAccount();
     }
 
     public Officer(String fName, String sName, int cAge, int ID, int Sal, int wNumber) {
