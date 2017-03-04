@@ -9,6 +9,7 @@ public class Runner {
         Manager manag = new Manager();
         Officer office = new Officer();
         Consulter con = new Consulter();
+        Customer cus1 = new Customer();
         Account firs = new Account();
 
         System.out.println(office.getSalary());
@@ -29,6 +30,7 @@ public class Runner {
         list.add(3);
         list.add(new Integer(3));
         int item = list.get(3);
-
+        manag.createCustomerAccount(cus1);
     }
+
 }
