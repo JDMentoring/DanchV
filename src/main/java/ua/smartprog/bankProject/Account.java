@@ -7,7 +7,7 @@ public class Account {
     public String cardNumber;
     public int balance;
     public String password;
-
+//
     public Account() {
         this.cardNumber = generateCardNumber();
         this.balance = 0;
