@@ -61,3 +61,7 @@
 2017-03-06 19:03:01 INFO  DatabaseConnection:26 - JDBC Driver is loaded
 2017-03-06 19:03:01 ERROR DatabaseConnection:35 - Can't connect to database!!!
 2017-03-06 19:03:01 ERROR DatabaseConnection:36 - Access denied for user 'root'@'localhost' (using password: YES)
+2017-03-06 19:46:14 INFO  Account:154 - Serialized!!!
+2017-03-06 19:46:14 INFO  Account:157 - Finish all streams!!!
+2017-03-06 19:46:14 INFO  Account:154 - Serialized!!!
+2017-03-06 19:46:14 INFO  Account:157 - Finish all streams!!!
