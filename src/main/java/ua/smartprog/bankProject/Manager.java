@@ -13,8 +13,8 @@ public class Manager extends Employee {
         setSalary(8000);
     }
 
-    public Manager(String fName, String sName, int cAge, int ID, int Sal, String bankName) {
-        super(fName, sName, cAge, ID, Sal);
+    public Manager(String fName, String sName, int year, int month, int day, int ID, int Sal, String bankName) {
+        super(fName, sName, year, month, day , ID, Sal);
         tax = 300;
         this.bankName = bankName;
         setSalary(8000);

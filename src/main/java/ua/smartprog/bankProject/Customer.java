@@ -16,8 +16,8 @@ public class Customer extends Human {
 
     }
 
-    public Customer(String fname, String sname, int age, String phoneNumber, int money, String pass) {
-        super(fname, sname, age);
+    public Customer(String fname, String sname, int year, int month, int day, String phoneNumber, int money, String pass) {
+        super(fname, sname, year, month, day);
         this.phoneNumber = phoneNumber;
         this.customerAccount = new ArrayList<Account>();
         this.customerAccount.ensureCapacity(1);

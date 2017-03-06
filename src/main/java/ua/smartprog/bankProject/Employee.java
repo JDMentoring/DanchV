@@ -19,12 +19,11 @@ public class Employee extends Human {
      *
      * @param fName - імя
      * @param sName - прізвище
-     * @param cAge - вік
      * @param ID - айді
      * @param Sal - зарплата
      */
-    public Employee(String fName, String sName, int cAge, int ID, int Sal) {
-        super(fName, sName, cAge);
+    public Employee(String fName, String sName, int year, int month, int day, int ID, int Sal) {
+        super(fName, sName, year, month, day);
         this.id = ID;
         salary = Sal;
     }

@@ -14,8 +14,8 @@ public class Consulter extends Employee {
         setSalary(1000);
     }
 
-    public Consulter(String fName, String sName, int cAge, int ID, int Sal) {
-        super(fName, sName, cAge, ID, Sal);
+    public Consulter(String fName, String sName, int year, int month, int day, int ID, int Sal) {
+        super(fName, sName, year, month, day, ID, Sal);
         this.experience = 4;
         setSalary(1000);
     }
