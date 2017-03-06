@@ -15,6 +15,8 @@ public class Account implements Serializable{
         this.password = generateDefaultPassword();
     }
 
+    private
+
     public Account(int balance, String password) {
         this.cardNumber = generateCardNumber();
         this.balance = balance;
