@@ -15,22 +15,10 @@ public class Runner {
         System.out.println(office.getSalary());
         System.out.println(con.getSalary());
 
-        try {
-            DatabaseConnection.createCurtomerPS();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        try {
-            DatabaseConnection.UpdateAccountDb(20, "4885605797534250", "0_b__U__", "12348765");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        list.add(3);
-        list.add(new Integer(3));
-        int item = list.get(3);
+
         manag.createCustomerAccount(cus1);
+        Account.saveData("Account", firs);
     }
 
 }

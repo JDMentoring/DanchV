@@ -12,6 +12,8 @@ public class Customer extends Human {
         this.customerAccount = new ArrayList<Account>();
         this.customerAccount.ensureCapacity(1);
         this.customerAccount.add(new Account());
+        Account.saveData("Account", customerAccount.get(customerAccount.size() - 1));
+
     }
 
     public Customer(String fname, String sname, int age, String phoneNumber, int money, String pass) {
@@ -19,8 +21,9 @@ public class Customer extends Human {
         this.phoneNumber = phoneNumber;
         this.customerAccount = new ArrayList<Account>();
         this.customerAccount.ensureCapacity(1);
-
         this.customerAccount.add(new Account(money, pass));
+        Account.saveData("Account", customerAccount.get(customerAccount.size() - 1));
+
     }
 
     public void setPhoneNumber(String phoneNumber) {

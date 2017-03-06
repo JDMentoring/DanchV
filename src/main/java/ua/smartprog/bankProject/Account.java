@@ -1,9 +1,10 @@
 package ua.smartprog.bankProject;
 
+import java.io.*;
 import java.util.Scanner;
 import java.util.Random;
 
-public class Account {
+public class Account implements Serializable{
     public String cardNumber;
     public int balance;
     public String password;
@@ -141,5 +142,19 @@ public class Account {
         System.out.println("Number: "+this.cardNumber);
     }
 
-    public static void saveData(){}
+    public static void saveData(String filename, Account accObject){
+        try {
+            FileOutputStream fileOut = new FileOutputStream(filename + ".ser");
+            ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
+            objOut.writeObject(accObject);
+            fileOut.close();
+            objOut.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found!!!");
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Object not found!!!");
+            e.printStackTrace();
+        }
+    }
 }

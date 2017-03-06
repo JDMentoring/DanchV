@@ -58,3 +58,6 @@
 2017-02-28 10:58:48 ERROR DatabaseConnection:36 - Access denied for user 'servlab_danoop'@'%' to database 'servab_danoop'
 2017-02-28 11:12:53 INFO  DatabaseConnection:26 - JDBC Driver is loaded
 2017-02-28 11:12:53 INFO  DatabaseConnection:33 - Connect to database successful!!!
+2017-03-06 19:03:01 INFO  DatabaseConnection:26 - JDBC Driver is loaded
+2017-03-06 19:03:01 ERROR DatabaseConnection:35 - Can't connect to database!!!
+2017-03-06 19:03:01 ERROR DatabaseConnection:36 - Access denied for user 'root'@'localhost' (using password: YES)
