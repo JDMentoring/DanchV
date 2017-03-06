@@ -140,4 +140,6 @@ public class Account {
     public void shortInfo(){
         System.out.println("Number: "+this.cardNumber);
     }
+
+    public static void saveData(){}
 }
