@@ -4,6 +4,8 @@ import java.io.*;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 import java.util.Random;
+
+import com.sun.org.apache.xerces.internal.impl.dv.xs.YearDV;
 import org.apache.log4j.Logger;
 import sun.util.calendar.Gregorian;
 
@@ -12,17 +14,17 @@ public class Account implements Serializable{
     public String cardNumber;
     public int balance;
     public String password;
-    public GregorianCalendar cardDate;
-    private GregorianCalendar cardEnd;
-//
+    public GregorianCalendar cardDate = (GregorianCalendar) GregorianCalendar.getInstance();
+    private GregorianCalendar cardEnd = (GregorianCalendar) GregorianCalendar.getInstance();
+
+    //
     public Account() {
         this.cardNumber = generateCardNumber();
         this.balance = 0;
         this.password = generateDefaultPassword();
         cardDate = new GregorianCalendar();
-        cardEnd = new GregorianCalendar();
         cardEnd.add(GregorianCalendar.YEAR, 10);
-        System.out.println(cardDate.YEAR + " " + cardEnd.YEAR);
+        System.out.println(cardDate.get(cardDate.YEAR) + " " + cardEnd.get(cardEnd.YEAR));
     }
 
     private static final Logger log = Logger.getLogger(Account.class);
@@ -62,10 +64,9 @@ public class Account implements Serializable{
 
     public void checkCardDate(){
         GregorianCalendar currentDate = new GregorianCalendar();
-        System.out.println(currentDate.YEAR + " " + cardEnd.YEAR);
-        if(currentDate.YEAR < cardEnd.YEAR){
-            int checkYears = cardEnd.YEAR - currentDate.YEAR;
-            System.out.println("Your card willl work " + checkYears + "years more!!");
+        if(currentDate.get(currentDate.YEAR) < cardEnd.get(cardEnd.YEAR)){
+            int year = (cardEnd.get(cardEnd.YEAR) - currentDate.get(currentDate.YEAR));
+            System.out.println("Your card willl work " + year + " years more!!");
         }
         else {
             System.out.println("Your card is outdated!!");
