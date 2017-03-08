@@ -10,6 +10,7 @@ public class Account implements Serializable{
     public String cardNumber;
     public int balance;
     public String password;
+    public int cardDate;
 //
     public Account() {
         this.cardNumber = generateCardNumber();
