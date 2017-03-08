@@ -5,29 +5,26 @@ import java.util.GregorianCalendar;
 import java.util.Scanner;
 import java.util.Random;
 
-import com.sun.org.apache.xerces.internal.impl.dv.xs.YearDV;
 import org.apache.log4j.Logger;
-import sun.util.calendar.Gregorian;
 
+public class Account implements Serializable {
+    private static final Logger log = Logger.getLogger(Account.class);
 
-public class Account implements Serializable{
     public String cardNumber;
     public int balance;
     public String password;
-    public GregorianCalendar cardDate = (GregorianCalendar) GregorianCalendar.getInstance();
-    private GregorianCalendar cardEnd = (GregorianCalendar) GregorianCalendar.getInstance();
+    public GregorianCalendar cardDate;
+    private GregorianCalendar cardEnd;
 
-    //
     public Account() {
         this.cardNumber = generateCardNumber();
         this.balance = 0;
         this.password = generateDefaultPassword();
         cardDate = new GregorianCalendar();
-        cardEnd.add(GregorianCalendar.YEAR, 10);
-        System.out.println(cardDate.get(cardDate.YEAR) + " " + cardEnd.get(cardEnd.YEAR));
+        cardEnd = new GregorianCalendar();
+        cardEnd.add(GregorianCalendar.YEAR, 3);
+        //System.out.println(cardDate.get(cardDate.YEAR) + " " + cardEnd.get(cardEnd.YEAR));
     }
-
-    private static final Logger log = Logger.getLogger(Account.class);
 
     public Account(int balance, String password) {
         this.cardNumber = generateCardNumber();
@@ -62,16 +59,14 @@ public class Account implements Serializable{
         return num.toString();
     }
 
-    public void checkCardDate(){
+    public void checkCardDate() {
         GregorianCalendar currentDate = new GregorianCalendar();
-        if(currentDate.get(currentDate.YEAR) < cardEnd.get(cardEnd.YEAR)){
+        if (currentDate.get(currentDate.YEAR) < cardEnd.get(cardEnd.YEAR)) {
             int year = (cardEnd.get(cardEnd.YEAR) - currentDate.get(currentDate.YEAR));
             System.out.println("Your card willl work " + year + " years more!!");
-        }
-        else {
+        } else {
             System.out.println("Your card is outdated!!");
         }
-
     }
 
     public String generateVCNumber() {
@@ -136,11 +131,10 @@ public class Account implements Serializable{
                 check[diapason] = 1;
 
 
-            } else if (diapason == 1){
-                 pass.append(syms.charAt(generator.nextInt(syms.length())));
+            } else if (diapason == 1) {
+                pass.append(syms.charAt(generator.nextInt(syms.length())));
                 check[diapason] = 1;
-            }
-            else {
+            } else {
                 pass.append(nums.charAt(generator.nextInt(nums.length())));
                 check[diapason] = 1;
             }
@@ -164,17 +158,17 @@ public class Account implements Serializable{
         return tempPassword.equals(this.password);
     }
 
-    public String toString(){
+    public String toString() {
         return "Account[Card number = " + cardNumber
                 + ", Balance = " + balance
                 + "]";
     }
 
-    public void shortInfo(){
-        System.out.println("Number: "+this.cardNumber);
+    public void shortInfo() {
+        System.out.println("Number: " + this.cardNumber);
     }
 
-    public static void saveData(String filename, Account accObject){
+    public static void saveData(String filename, Account accObject) {
         try {
             FileOutputStream fileOut = new FileOutputStream(filename + ".ser");
             ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
