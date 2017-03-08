@@ -1,6 +1,6 @@
 package ua.smartprog.bankProject;
 
-public class Employee extends Human {
+public class Employee extends Human implements Comparable<Employee> {
     private static int nextId = 1;
 
     private int id;
@@ -59,6 +59,7 @@ public class Employee extends Human {
                 + "]";
     }
 
+    @Override
     public boolean equals(Object otherObject){
         if(this == otherObject) return true;
 
@@ -67,4 +68,7 @@ public class Employee extends Human {
         return  false;
     }
 
+    public int compareTo(Employee o) {
+        return Double.compare(o.salary, salary);
+    }
 }

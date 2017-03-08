@@ -2,7 +2,7 @@ package ua.smartprog.bankProject;
 
 import java.util.prefs.BackingStoreException;
 
-public class Manager extends Employee {
+public class Manager extends Employee implements ToEmployee {
     private int tax;
     private String bankName;
 
@@ -14,7 +14,7 @@ public class Manager extends Employee {
     }
 
     public Manager(String fName, String sName, int year, int month, int day, int ID, int Sal, String bankName) {
-        super(fName, sName, year, month, day , ID, Sal);
+        super(fName, sName, year, month, day, ID, Sal);
         tax = 300;
         this.bankName = bankName;
         setSalary(8000);
@@ -57,7 +57,8 @@ public class Manager extends Employee {
     public void setSalary(int salary) {
 
     }
-    public String ToString(){
+
+    public String ToString() {
         Employee forToString = new Employee();
         return forToString.ToString() + ", Tax = " + tax
                 + ", Bank Name = " + bankName
@@ -65,4 +66,7 @@ public class Manager extends Employee {
 
     }
 
+    public Employee newEmployee() {
+        return new Employee();
+    }
 }
