@@ -10,7 +10,7 @@ public class Runner {
         Officer office = new Officer();
         Consulter con = new Consulter();
         Customer cus1 = new Customer();
-        Account firs = new Account();
+        Account first = new Account();
 
         System.out.println(office.getSalary());
         System.out.println(con.getSalary());
@@ -18,7 +18,8 @@ public class Runner {
 
 
         manag.createCustomerAccount(cus1);
-        Account.saveData("Account", firs);
+        Account.saveData("Account", first);
+        first.checkCardDate();
     }
 
 }
