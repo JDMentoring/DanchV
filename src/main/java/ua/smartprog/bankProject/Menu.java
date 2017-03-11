@@ -33,8 +33,9 @@ public class Menu {
         String scanPage2_customer = scan2Page_customer.next();
         System.out.println("Choose option you want: \n"
         + "[1] - create account \n"
-        + "[2] - enter account\n"
-        + "[3] - register in bank\n");
-        if()
+        + "[2] - enter account\n");
+        checkCustomerMenu2
     }
+
+
 }
