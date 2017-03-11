@@ -19,15 +19,18 @@ public class Officer extends Employee{
         setSalary(2000);
     }
 
-    public void createCustomerAccount(Customer cus){
-        cus.openAccount();
-    }
+
 
     public Officer(String fName, String sName,int year, int month, int day, int ID, int Sal, int wNumber) {
         super(fName, sName, year, month, day, ID, Sal);
         this.workplaceNumber = wNumber;
         setSalary(2000);
     }
+
+    public static void createCustomerAccount(Customer cus){
+        cus.openAccount();
+    }
+
     public String ToString() {
         Employee forToString = new Employee();
         return forToString.ToString() + ", worklaceNumber =" + workplaceNumber
