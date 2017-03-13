@@ -2,9 +2,6 @@ package ua.smartprog.bankProject;
 
 import java.util.Scanner;
 
-/**
- * Created by Admin on 08.03.2017.
- */
 public class Menu {
 
     private String choiceNum;
@@ -28,7 +25,7 @@ public class Menu {
             secondPage_employee();
         }
         else if(choiceNum == "3"){
-            chooseWork();
+            //chooseWork();
         }
         else {
             System.out.println("Choose 1 , 2 or 3");
@@ -43,7 +40,7 @@ public class Menu {
         choiceNum = scanPage();
         if(choiceNum == "1"){
             created.openAccount();
-            thirdPage_customer();
+            //thirdPage_customer();
         }
         else if(choiceNum == "2"){
             secondPage_employee();
@@ -64,10 +61,10 @@ public class Menu {
             officerMenu();
         }
         else if(choiceNum == "2"){
-            consulterMenu();
+            //consulterMenu();
         }
         else if(choiceNum == "3"){
-            managerMenu();
+            //managerMenu();
         }
         else {
             System.out.println("Choose 1 , 2 or 3!!");
@@ -82,7 +79,7 @@ public class Menu {
         + "[2] - checkout my workplace number;\n");
         choiceNum = scanPage();
         if(choiceNum == "1"){
-            myOffAccount.createCustomerAccount();
+            //myOffAccount.createCustomerAccount();
         }
         else if(choiceNum == "2"){
             System.out.println();
