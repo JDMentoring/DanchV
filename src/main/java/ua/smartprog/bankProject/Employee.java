@@ -23,7 +23,8 @@ public class Employee extends Human implements Comparable<Employee> {
      * @param Sal - зарплата
      */
     public Employee(String fName, String sName, int year, int month, int day, int ID, int Sal) {
-        super(fName, sName, year, month, day);
+        //super(fName, sName, year, month, day);
+        setFirstName(fName);
         this.id = ID;
         salary = Sal;
     }
@@ -70,5 +71,9 @@ public class Employee extends Human implements Comparable<Employee> {
 
     public int compareTo(Employee o) {
         return Double.compare(o.salary, salary);
+    }
+
+    public void setBD(int year, int month, int date) {
+
     }
 }

@@ -58,13 +58,13 @@ public class Manager extends Employee implements ToEmployee {
 
     }
 
-    public String ToString() {
-        Employee forToString = new Employee();
-        return forToString.ToString() + ", Tax = " + tax
+    public String toString() {
+        return super.toString() + ", Tax = " + tax
                 + ", Bank Name = " + bankName
                 + "]";
-
     }
+
+
 
     public Employee newEmployee() {
         return new Employee();
