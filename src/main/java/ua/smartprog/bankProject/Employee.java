@@ -14,7 +14,6 @@ public class Employee extends Human implements Comparable<Employee> {
         salary = 0;
         workDays = 0;
     }
-//start ToString
     /**
      *
      * @param fName - імя

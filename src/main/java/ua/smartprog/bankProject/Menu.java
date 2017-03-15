@@ -61,7 +61,7 @@ public class Menu {
 
     public void login_customer(){
         AccountsBase acc = new AccountsBase();
-        Account needed;
+        Account needed = null;
         String checkCard;
         System.out.println("Login : \n"
         + "card number :");

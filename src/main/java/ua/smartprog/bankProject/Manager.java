@@ -1,7 +1,5 @@
 package ua.smartprog.bankProject;
 
-import java.util.prefs.BackingStoreException;
-
 public class Manager extends Employee implements ToEmployee {
     private int tax;
     private String bankName;
@@ -65,8 +63,12 @@ public class Manager extends Employee implements ToEmployee {
     }
 
 
-
     public Employee newEmployee() {
         return new Employee();
+    }
+
+    @Override
+    public void deleteEmployee() {
+
     }
 }
