@@ -11,6 +11,7 @@ public class Runner {
         Consulter con = new Consulter();
         Customer cus1 = new Customer();
         Account first = new Account();
+        ArrayList<Account> accountsBase;
 
         System.out.println(office.getSalary());
         System.out.println(con.getSalary());
