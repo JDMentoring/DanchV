@@ -1,5 +1,6 @@
 package ua.smartprog.bankProject;
 
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
 public class Menu {
@@ -40,14 +41,43 @@ public class Menu {
         choiceNum = scanPage();
         if(choiceNum == "1"){
             created.openAccount();
-            //thirdPage_customer();
+            create_customer();
         }
         else if(choiceNum == "2"){
-            secondPage_employee();
+            login_customer();
         }
         else {
             System.out.println("Choose 1 or 2!!");
             secondPage_customer();
+        }
+    }
+
+    public void create_customer(){
+        AccountsBase acc = new AccountsBase();
+        Account newbie = new Account();
+        acc.addAccount(newbie);
+        secondPage_customer();
+    }
+
+    public void login_customer(){
+        AccountsBase acc = new AccountsBase();
+        Account needed;
+        String checkCard;
+        System.out.println("Login : \n"
+        + "card number :");
+        Scanner login = new Scanner(System.in);
+        String cardNum = login.next();
+        for (int i = 0; i < 20; i++){
+            needed = (Account) acc.getAccs().get(i);
+            checkCard = needed.getCardNumber();
+            if(cardNum == checkCard){
+                break;
+            }
+        }
+        System.out.println("\npassword : ");
+        if(needed.checkPassword()){
+            //customerInterface();
+            System.out.println("Go To Cus iface!!!");
         }
     }
 

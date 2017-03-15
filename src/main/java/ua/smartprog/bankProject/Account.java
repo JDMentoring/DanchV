@@ -18,8 +18,10 @@ public class Account implements Serializable {
 
     public Account() {
         this.cardNumber = generateCardNumber();
+        System.out.println(cardNumber);
         this.balance = 0;
         this.password = generateDefaultPassword();
+        System.out.println(password);
         cardDate = new GregorianCalendar();
         cardEnd = new GregorianCalendar();
         cardEnd.add(GregorianCalendar.YEAR, 3);

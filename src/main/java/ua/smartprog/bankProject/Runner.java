@@ -14,11 +14,13 @@ public class Runner {
         ArrayList<Account> accountsBase;
 
         System.out.println(office.getSalary());
-        System.out.println(con.getSalary());
+        System.out.println(con.getSalary());*/
+
+        Menu men = new Menu();
 
 
 
-        manag.createCustomerAccount(cus1);
+        /*manag.createCustomerAccount(cus1);
         Account.saveData("Account", first);
         first.checkCardDate();
     }
