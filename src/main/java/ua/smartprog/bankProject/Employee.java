@@ -9,7 +9,7 @@ public class Employee extends Human implements Comparable<Employee> {
 
 
     public Employee() {
-        super();
+
         id = 0;
         salary = 0;
         workDays = 0;

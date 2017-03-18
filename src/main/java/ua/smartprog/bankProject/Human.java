@@ -8,6 +8,10 @@ public abstract class Human {
     private String secondName;
     private GregorianCalendar born_date;
 
+    public void setBorn_date(int year , int month, int day) {
+        born_date.set(year, month, day);
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
