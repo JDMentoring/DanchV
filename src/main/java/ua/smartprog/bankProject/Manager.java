@@ -1,18 +1,20 @@
 package ua.smartprog.bankProject;
 
-public class Manager extends Employee implements ToEmployee {
+public class Manager extends Employee{
     private int tax;
     private String bankName;
 
     public Manager() {
-        super();
+        super.defSet();
         tax = 300;
         bankName = "MyBank";
         setSalary(8000);
     }
 
     public Manager(String fName, String sName, int year, int month, int day, int ID, int Sal, String bankName) {
-        super(fName, sName, year, month, day, ID, Sal);
+        super.setFirstName(fName);
+        super.setSecondName(sName);
+        super.setBD(year, month, day);
         tax = 300;
         this.bankName = bankName;
         setSalary(8000);
@@ -67,8 +69,8 @@ public class Manager extends Employee implements ToEmployee {
         return new Employee();
     }
 
-    @Override
+    /*@Override
     public void deleteEmployee() {
 
-    }
+    }*/
 }

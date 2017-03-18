@@ -17,15 +17,14 @@ public class Menu {
         + "[1] - Customer ;\n"
         + "[2] - Employee ;\n"
         + "[3] - Employ me! ;\n");
-        choiceNum = scanPage();
-        if(choiceNum == "1"){
+        if(scanPage() == "1"){
             Customer created = new Customer();
             secondPage_customer();
         }
-        else if(choiceNum == "2"){
+        else if(scanPage() == "2"){
             secondPage_employee();
         }
-        else if(choiceNum == "3"){
+        else if(scanPage() == "3"){
             //chooseWork();
         }
         else {
@@ -119,6 +118,7 @@ public class Menu {
     public String scanPage(){
         Scanner scanPage = new Scanner(System.in);
         String scanPage1 = scanPage.next();
+        System.out.println(scanPage1);
         return scanPage1;
     }
 

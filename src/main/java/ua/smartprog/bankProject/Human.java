@@ -8,9 +8,6 @@ public abstract class Human {
     private String secondName;
     private GregorianCalendar born_date;
 
-    public void setBorn_date(int year , int month, int day) {
-        born_date.set(year, month, day);
-    }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -28,6 +25,12 @@ public abstract class Human {
         return secondName;
     }
 
+    public void defSet(){
+        firstName = "Undefined";
+        secondName = "Undefined";
+        born_date = null;
+    }
+
     public int getAge() {
 
         Calendar endCalendar = new GregorianCalendar();
@@ -37,7 +40,9 @@ public abstract class Human {
         return (diffMonth / 12);
     }
 
-    public abstract void setBD(int year, int month, int date);
+    public void setBD(int year, int month, int day){
+        born_date.set(year, month, day);
+    }
 
     public String ToString() {
         return "Human[First Name = " + firstName

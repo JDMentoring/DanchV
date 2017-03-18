@@ -8,7 +8,7 @@ public class Customer extends Human {
     private String phoneNumber;
 
     public Customer() {
-        super();
+        super.defSet();
         this.customerAccount = new ArrayList<Account>();
         this.customerAccount.ensureCapacity(1);
         this.customerAccount.add(new Account());
@@ -17,7 +17,9 @@ public class Customer extends Human {
     }
 
     public Customer(String fname, String sname, int year, int month, int day, String phoneNumber, int money, String pass) {
-        super(fname, sname, year, month, day);
+        super.setFirstName(fname);
+        super.setSecondName(sname);
+        super.setBD(year, month, day);
         this.phoneNumber = phoneNumber;
         this.customerAccount = new ArrayList<Account>();
         this.customerAccount.ensureCapacity(1);

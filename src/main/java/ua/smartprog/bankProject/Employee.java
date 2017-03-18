@@ -9,20 +9,22 @@ public class Employee extends Human implements Comparable<Employee> {
 
 
     public Employee() {
-
+        super.defSet();
         id = 0;
         salary = 0;
         workDays = 0;
     }
+
     /**
-     *
      * @param fName - імя
      * @param sName - прізвище
-     * @param ID - айді
-     * @param Sal - зарплата
+     * @param ID    - айді
+     * @param Sal   - зарплата
      */
     public Employee(String fName, String sName, int year, int month, int day, int ID, int Sal) {
-        //super(fName, sName, year, month, day);
+        super.setFirstName(fName);
+        super.setSecondName(sName);
+        super.setBD(year, month, day);
         setFirstName(fName);
         this.id = ID;
         salary = Sal;
@@ -60,12 +62,12 @@ public class Employee extends Human implements Comparable<Employee> {
     }
 
     @Override
-    public boolean equals(Object otherObject){
-        if(this == otherObject) return true;
+    public boolean equals(Object otherObject) {
+        if (this == otherObject) return true;
 
         if (otherObject == null) return false;
         if (getClass() != otherObject.getClass()) return false;
-        return  false;
+        return false;
     }
 
     public int compareTo(Employee o) {

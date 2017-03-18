@@ -1,4 +1,4 @@
-package ua.smartprog.bankProject;
+/*1package ua.smartprog.bankProject;
 
 import org.junit.Test;
 import sun.dc.path.PathError;
@@ -69,4 +69,4 @@ public class EmployeeTest {
     }
 
 
-}
+}*/
