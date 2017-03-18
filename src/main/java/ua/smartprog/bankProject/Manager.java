@@ -54,8 +54,14 @@ public class Manager extends Employee{
         this.bankName = bankName;
     }
 
-    public void setSalary(int salary) {
+    public int getTax() {
+        return tax;
+    }
 
+    public void setSalary(int salary, int index) {
+        Base empBase = new Base();
+        Employee temp = (Employee) empBase.getEmployees().get(index);
+        temp.setSalary(salary);
     }
 
     public String toString() {
@@ -65,12 +71,13 @@ public class Manager extends Employee{
     }
 
 
-    public Employee newEmployee() {
-        return new Employee();
+    public void newEmployee(Employee emp) {
+        Base empBase = new Base();
+        empBase.employ(emp);
     }
 
-    /*@Override
-    public void deleteEmployee() {
-
-    }*/
+    public void deleteEmployee(int index) {
+        Base empBase = new Base();
+        empBase.fireEmployee(index);
+    }
 }

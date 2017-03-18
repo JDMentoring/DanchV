@@ -149,7 +149,7 @@ public class Account implements Serializable {
     }
 
     public void resetPassword(String password) {
-        System.out.println("Put the current password to chandge it : ");
+        System.out.println("Type the current password to chandge it : ");
         if (checkPassword()) this.password = password;
     }
 
