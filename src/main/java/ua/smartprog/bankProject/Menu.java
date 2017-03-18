@@ -17,14 +17,16 @@ public class Menu {
         + "[1] - Customer ;\n"
         + "[2] - Employee ;\n"
         + "[3] - Employ me! ;\n");
-        if(scanPage() == "1"){
-            Customer created = new Customer();
+        System.out.println(scanPage());
+        choiceNum = scanPage();
+        if(choiceNum == "1"){
+            System.out.println("Calling second page");
             secondPage_customer();
         }
-        else if(scanPage() == "2"){
+        else if(choiceNum == "2"){
             secondPage_employee();
         }
-        else if(scanPage() == "3"){
+        else if(choiceNum == "3"){
             //chooseWork();
         }
         else {
@@ -75,9 +77,13 @@ public class Menu {
         }
         System.out.println("\npassword : ");
         if(needed.checkPassword()){
-            //customerInterface();
+            customerInterface();
             System.out.println("Go To Cus iface!!!");
         }
+    }
+
+    public void customerInterface(){
+        System.out.println("");
     }
 
     public void secondPage_employee(){
