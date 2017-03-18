@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Menu {
 
-    private String choiceNum;
+    private int choiceNum;
     private Customer created;
 
     public Menu() {
@@ -19,12 +19,12 @@ public class Menu {
                 + "[2] - Employee ;\n"
                 + "[3] - Employ me!;\n");
         choiceNum = scanPage();
-        if (choiceNum == "1") {
+        if (choiceNum == 1) {
             System.out.println("Calling second page");
             secondPage_customer();
-        } else if (choiceNum == "2") {
+        } else if (choiceNum == 2) {
             secondPage_employee();
-        } else if (choiceNum == "3") {
+        } else if (choiceNum == 3) {
             employ();
         } else {
             System.out.println("Choose 1 , 2 or 3");
@@ -36,9 +36,9 @@ public class Menu {
         Base potBase = new Base();
         System.out.println("Put your credentials: \n"
                 + "first name: ");
-        String fname = scanPage();
+        //String fname = scanPage();
         System.out.println("\nsecond name: ");
-        String sname = scanPage();
+        //String sname = scanPage();
         System.out.println("\nDate of birth:\n"
                 + "year: ");
         Scanner date = new Scanner(System.in);
@@ -47,8 +47,8 @@ public class Menu {
         int month = Integer.parseInt(date.next());
         System.out.println("\nday: ");
         int day = Integer.parseInt(date.next());
-        Employee emp = new Employee(fname, sname, year, month, day);
-        potBase.addPotentialEmployee(emp);
+        //Employee emp = new Employee(fname, sname, year, month, day);
+        //potBase.addPotentialEmployee(emp);
     }
 
     public void secondPage_customer() {
@@ -56,10 +56,10 @@ public class Menu {
                 + "[1] - create account \n"
                 + "[2] - enter account\n");
         choiceNum = scanPage();
-        if (choiceNum == "1") {
+        if (choiceNum == 1) {
             created.openAccount();
             create_customer();
-        } else if (choiceNum == "2") {
+        } else if (choiceNum == 2) {
             login_customer();
         } else {
             System.out.println("Choose 1 or 2!!");
@@ -105,24 +105,24 @@ public class Menu {
                 + "[5] - check card date;\n"
                 + "[6] - info;\n");
         choiceNum = scanPage();
-        if (choiceNum == "1") {
+        if (choiceNum == 1) {
             System.out.println("How much money do you want to add: ");
             Scanner money = new Scanner(System.in);
             int amount = Integer.parseInt(money.next());
             acc.addMoney(amount);
-        } else if (choiceNum == "2") {
+        } else if (choiceNum == 2) {
             System.out.println("How much money do you want to add: ");
             Scanner money = new Scanner(System.in);
             int amount = Integer.parseInt(money.next());
             acc.takeMoney(amount);
-        } else if (choiceNum == "3") {
+        } else if (choiceNum == 3) {
             System.out.println(" Your current balance is : " + acc.checkBalance() + " UAH");
-        } else if (choiceNum == "4") {
-            String password = scanPage();
-            acc.resetPassword(password);
-        } else if (choiceNum == "5") {
+        } else if (choiceNum == 4) {
+            //String password = scanPage();
+            //acc.resetPassword(password);
+        } else if (choiceNum == 5) {
             acc.checkCardDate();
-        } else if (choiceNum == "6") {
+        } else if (choiceNum == 6) {
             acc.toString();
         } else {
             System.out.println("Choose one of the options!!!");
@@ -136,11 +136,11 @@ public class Menu {
                 + "[2] - Consulter;\n"
                 + "[3] - MANAGER\n");
         choiceNum = scanPage();
-        if (choiceNum == "1") {
+        if (choiceNum == 1) {
             officerInterface();
-        } else if (choiceNum == "2") {
+        } else if (choiceNum == 2) {
             consulterInterface();
-        } else if (choiceNum == "3") {
+        } else if (choiceNum == 3) {
             managerInterdace();
         } else {
             System.out.println("Choose 1 , 2 or 3!!");
@@ -154,10 +154,10 @@ public class Menu {
                 + "[1] - create account for a customer ;\n"
                 + "[2] - checkout my workplace number;\n");
         choiceNum = scanPage();
-        if (choiceNum == "1") {
+        if (choiceNum == 1) {
             Customer cus = new Customer();
             myOffAccount.createCustomerAccount(cus);
-        } else if (choiceNum == "2") {
+        } else if (choiceNum == 2) {
             System.out.println();
         }
     }
@@ -166,9 +166,9 @@ public class Menu {
         Consulter myConAccount = new Consulter();
         System.out.println("Type the customers data: \n"
                 + "first name: ");
-        String fname = scanPage();
+        //String fname = scanPage();
         System.out.println("\nsecond name: ");
-        String sname = scanPage();
+        //String sname = scanPage();
         System.out.println("\nDate of birth:\n"
                 + "year: ");
         Scanner date = new Scanner(System.in);
@@ -178,12 +178,12 @@ public class Menu {
         System.out.println("\nday: ");
         int day = Integer.parseInt(date.next());
         System.out.println("\nphone number: ");
-        String phoneNumber = scanPage();
+        //String phoneNumber = scanPage();
         System.out.println("\nbalance: ");
         int money = Integer.parseInt(date.next());
         System.out.println("\npassword: ");
-        String pass = scanPage();
-        myConAccount.registerCustomer(fname, sname, year, month, day, phoneNumber, money, pass);
+        //String pass = scanPage();
+        // myConAccount.registerCustomer(fname, sname, year, month, day, phoneNumber, money, pass);
     }
 
     public void managerInterdace() {
@@ -195,44 +195,37 @@ public class Menu {
                 + "[4] - get tax; \n"
                 + "[5] - info));\n");
         choiceNum = scanPage();
-        if (choiceNum == "1") {
+        if (choiceNum == 1) {
             System.out.println("employees index:");
             Scanner emp = new Scanner(System.in);
             int index = Integer.parseInt(emp.next());
             System.out.println("new salary :");
             int salary = Integer.parseInt(emp.next());
             managAcc.setSalary(salary, index);
-        }
-        else if (choiceNum == "2") {
+        } else if (choiceNum == 2) {
             Base potBase = new Base();
             System.out.println("Put index of potential employee:");
             Scanner emp = new Scanner(System.in);
             int index = Integer.parseInt(emp.next());
             managAcc.newEmployee(potBase.getPotentialEmployees().get(index));
-        }
-        else if (choiceNum == "3") {
+        } else if (choiceNum == 3) {
             System.out.println("employees index:");
             Scanner emp = new Scanner(System.in);
             int index = Integer.parseInt(emp.next());
             managAcc.deleteEmployee(index);
-        }
-        else if (choiceNum == "4") {
+        } else if (choiceNum == 4) {
             System.out.println("The current tax is " + managAcc.getTax() + " UAH;");
-        }
-        else if (choiceNum == "5") {
+        } else if (choiceNum == 5) {
             managAcc.ToString();
-        }
-        else {
+        } else {
             System.out.println("Choose option!");
             managerInterdace();
         }
     }
 
-    public String scanPage() {
+    public int scanPage() {
         Scanner scanPage = new Scanner(System.in);
-        String scanPage1 = scanPage.next();
-        System.out.println(scanPage1);
-        return scanPage1;
+        return scanPage.nextInt();
     }
 
 }
