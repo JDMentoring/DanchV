@@ -3,10 +3,27 @@ package ua.smartprog.lesson_31;
 import java.util.ArrayList;
 
 public class Sale {
-    private ArrayList<SalesLineItem> items = new ArrayList<SalesLineItem>();
+    private int id;
+    private static int nextId = 1;
+    private ArrayList<SalesLineItem> items = null;
 
-    public void addProd(SalesLineItem item) {
-        items.add(item);
+    public Sale(ArrayList<SalesLineItem> items) {
+        setId();
+        this.items = new ArrayList<>(items);
+    }
+
+    public Sale() {
+        setId();
+        this.items = new ArrayList<>();
+    }
+
+    public void addLineItem(Product product, int q) {
+        this.items.add(new SalesLineItem(product, q));
+    }
+
+    public void setId() {
+        this.id = nextId;
+        nextId++;
     }
 
     public int summaryPrice() {
@@ -14,7 +31,6 @@ public class Sale {
 
         for (SalesLineItem item : items) {
             summ += item.getSubTotal();
-
         }
         return summ;
     }
