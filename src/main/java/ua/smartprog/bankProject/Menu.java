@@ -137,26 +137,41 @@ public class Menu {
                 + "[3] - MANAGER\n");
         choiceNum = scanPage();
         if (choiceNum == 1) {
-            officerInterface();
+            officerLogin();
         } else if (choiceNum == 2) {
-            consulterInterface();
+            consulterLogin();
         } else if (choiceNum == 3) {
-            managerInterdace();
+            managerLogin();
         } else {
             System.out.println("Choose 1 , 2 or 3!!");
             secondPage_employee();
         }
     }
 
-    public void officerInterface() {
-        Officer myOffAccount = new Officer();
+    public void officerLogin() {
+        System.out.println("Type your id:");
+        int id = scanPage();
+        int index = 0;
+        for(Employee emp: Base.getEmployees()){
+            if(id == emp.getId()){
+                break;
+            }
+            else {
+                index ++;
+            }
+        }
+        officerInterface(index);
+    }
+
+    public void officerInterface(int index) {
         System.out.println("Do you have to: \n"
                 + "[1] - create account for a customer ;\n"
                 + "[2] - checkout my workplace number;\n");
         choiceNum = scanPage();
         if (choiceNum == 1) {
-            Customer cus = new Customer();
-            createCustomerAccount(index);
+            System.out.println("index of customer:");
+            int idx = scanPage();
+            (Officer) Base.getEmployees().get(index).createCustomerAccount(idx);
         } else if (choiceNum == 2) {
             System.out.println();
         }
@@ -224,7 +239,7 @@ public class Menu {
         return scanPage.nextInt();
     }
 
-    public String scanText(){
+    public String scanText() {
         Scanner scanText = new Scanner(System.in);
         return scanText.next();
     }
