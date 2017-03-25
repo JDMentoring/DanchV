@@ -31,8 +31,8 @@ public class Officer extends Employee{
         setSalary(2000);
     }
 
-    public void createCustomerAccount(Customer cus){
-        cus.openAccount();
+    public void createCustomerAccount(int index){
+
     }
 
     public String ToString() {

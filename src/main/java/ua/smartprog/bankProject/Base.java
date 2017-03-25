@@ -4,26 +4,26 @@ import java.util.ArrayList;
 
 
 public class Base {
-    private ArrayList<Account> accountsBase = new ArrayList<Account>();
-    private ArrayList<Employee> employeeBase = new ArrayList<Employee>();
-    private ArrayList<Employee> potentialEmployeeBase = new ArrayList<Employee>();
+    private static ArrayList<Account> accountsBase = new ArrayList<Account>();
+    private static ArrayList <Employee> employeeBase = new ArrayList<Employee>();
+    private static ArrayList<Employee> potentialEmployeeBase = new ArrayList<Employee>();
 
     public ArrayList getAccs(){
         return accountsBase;
     }
 
-    public void addAccount(Account newbie){
+    public static void addAccount(Account newbie){
         accountsBase.add(newbie);
     }
 
-    public void fireEmployee(int index){
+    public static void fireEmployee(int index){
         employeeBase.remove(index);
     }
 
-    public void employ(Employee newbie){
+    public static void employ(Employee newbie){
         employeeBase.add(newbie);
     }
-    public ArrayList getEmployees(){
+    public static ArrayList getEmployees(){
         return employeeBase;
     }
 

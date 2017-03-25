@@ -156,7 +156,7 @@ public class Menu {
         choiceNum = scanPage();
         if (choiceNum == 1) {
             Customer cus = new Customer();
-            myOffAccount.createCustomerAccount(cus);
+            createCustomerAccount(index);
         } else if (choiceNum == 2) {
             System.out.println();
         }
@@ -166,24 +166,23 @@ public class Menu {
         Consulter myConAccount = new Consulter();
         System.out.println("Type the customers data: \n"
                 + "first name: ");
-        //String fname = scanPage();
+        String fname = scanText();
         System.out.println("\nsecond name: ");
-        //String sname = scanPage();
+        String sname = scanText();
         System.out.println("\nDate of birth:\n"
                 + "year: ");
-        Scanner date = new Scanner(System.in);
-        int year = Integer.parseInt(date.next());
+        int year = scanPage();
         System.out.println("\nmonth: ");
-        int month = Integer.parseInt(date.next());
+        int month = scanPage();
         System.out.println("\nday: ");
-        int day = Integer.parseInt(date.next());
+        int day = scanPage();
         System.out.println("\nphone number: ");
-        //String phoneNumber = scanPage();
+        String phoneNumber = scanText();
         System.out.println("\nbalance: ");
-        int money = Integer.parseInt(date.next());
+        int money = scanPage();
         System.out.println("\npassword: ");
-        //String pass = scanPage();
-        // myConAccount.registerCustomer(fname, sname, year, month, day, phoneNumber, money, pass);
+        String pass = scanText();
+        myConAccount.registerCustomer(fname, sname, year, month, day, phoneNumber, money, pass);
     }
 
     public void managerInterdace() {
@@ -197,7 +196,7 @@ public class Menu {
         choiceNum = scanPage();
         if (choiceNum == 1) {
             System.out.println("employees index:");
-            int index = scanPage());
+            int index = scanPage();
             System.out.println("new salary :");
             int salary = scanPage();
             managAcc.setSalary(salary, index);
