@@ -18,9 +18,7 @@ public class Employee extends Human implements Comparable<Employee> {
     /**
      * @param fName - імя
      * @param sName - прізвище
-     * @param ID    - айді
-     * @param Sal   - зарплата
-     */
+     **/
     public Employee(String fName, String sName, int year, int month, int day) {
         super.setFirstName(fName);
         super.setSecondName(sName);

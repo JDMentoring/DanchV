@@ -25,7 +25,6 @@ public class Account implements Serializable {
         cardDate = new GregorianCalendar();
         cardEnd = new GregorianCalendar();
         cardEnd.add(GregorianCalendar.YEAR, 3);
-        //System.out.println(cardDate.get(cardDate.YEAR) + " " + cardEnd.get(cardEnd.YEAR));
     }
 
     public Account(int balance, String password) {

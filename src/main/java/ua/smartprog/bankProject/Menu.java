@@ -197,21 +197,18 @@ public class Menu {
         choiceNum = scanPage();
         if (choiceNum == 1) {
             System.out.println("employees index:");
-            Scanner emp = new Scanner(System.in);
-            int index = Integer.parseInt(emp.next());
+            int index = scanPage());
             System.out.println("new salary :");
-            int salary = Integer.parseInt(emp.next());
+            int salary = scanPage();
             managAcc.setSalary(salary, index);
         } else if (choiceNum == 2) {
             Base potBase = new Base();
             System.out.println("Put index of potential employee:");
-            Scanner emp = new Scanner(System.in);
-            int index = Integer.parseInt(emp.next());
+            int index = scanPage();
             managAcc.newEmployee(potBase.getPotentialEmployees().get(index));
         } else if (choiceNum == 3) {
             System.out.println("employees index:");
-            Scanner emp = new Scanner(System.in);
-            int index = Integer.parseInt(emp.next());
+            int index = scanPage();
             managAcc.deleteEmployee(index);
         } else if (choiceNum == 4) {
             System.out.println("The current tax is " + managAcc.getTax() + " UAH;");
@@ -226,6 +223,11 @@ public class Menu {
     public int scanPage() {
         Scanner scanPage = new Scanner(System.in);
         return scanPage.nextInt();
+    }
+
+    public String scanText(){
+        Scanner scanText = new Scanner(System.in);
+        return scanText.next();
     }
 
 }
