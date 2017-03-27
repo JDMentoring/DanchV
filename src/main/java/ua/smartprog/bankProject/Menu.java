@@ -171,7 +171,7 @@ public class Menu {
         if (choiceNum == 1) {
             System.out.println("index of customer:");
             int idx = scanPage();
-            (Officer) Base.getEmployees().get(index).createCustomerAccount(idx);
+            Base.
         } else if (choiceNum == 2) {
             System.out.println();
         }
