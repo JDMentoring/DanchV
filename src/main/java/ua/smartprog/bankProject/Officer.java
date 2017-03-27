@@ -7,7 +7,6 @@ import java.util.Random;
 public class Officer extends Employee{
     private int workplaceNumber;
     Random random = new Random();
-    Manager managersCommand = new Manager();
 
     public Officer() {
         super.defSet();
@@ -23,21 +22,12 @@ public class Officer extends Employee{
         setSalary(2000);
     }
 
-
-
-    public Officer(String fName, String sName,int year, int month, int day, int ID, int Sal, int wNumber) {
-        //super(fName, sName, year, month, day, ID, Sal);
-        this.workplaceNumber = wNumber;
-        setSalary(2000);
-    }
-
     public void createCustomerAccount(int index){
-
+        Base.getCustomerBase(index).openAccount();
     }
 
     public String ToString() {
-        Employee forToString = new Employee();
-        return forToString.ToString() + ", worklaceNumber =" + workplaceNumber
+        return super.ToString() + ", worklaceNumber =" + workplaceNumber
                 + "]";
     }
 }

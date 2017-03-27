@@ -30,10 +30,9 @@ public class Consulter extends Employee {
         this.experience = experience;
     }
     public String ToString(){
-        Employee forToString = new Employee();
-        return forToString.ToString() + "Expirience = " + experience + "]";
+        return super.ToString() + "Expirience = " + experience + "]";
     }
     public void registerCustomer(String fname, String sname, int year, int month, int day, String phoneNumber, int money, String pass){
-        Customer newCus = new Customer(fname, sname, year, month, day, phoneNumber, money, pass);
+        Base.addCustomer(fname, sname, year, month, day, phoneNumber, money, pass);
     }
 }

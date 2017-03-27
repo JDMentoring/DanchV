@@ -20,30 +20,20 @@ public class Manager extends Employee{
         setSalary(8000);
     }
 
-    public void increaseSal(int i, Officer a) {
-        a.setSalary(a.getSalary() + i);
+
+    public void increaseSal(int i, int index) {
+        Base.getEmployee(index).setSalary(Base.getEmployee(index).getSalary() + i);
     }
 
-    public void increaseSal(int i, Consulter a) {
-        a.setSalary(a.getSalary() + i);
+    public void decreaseSal(int i, int index) {
+        Base.getEmployee(index).setSalary(Base.getEmployee(index).getSalary() - i);
     }
 
-    public void decreaseSal(int i, Officer a) {
-        a.setSalary(a.getSalary() - i);
-    }
-
-    public void decreaseSal(int i, Consulter a) {
-        a.setSalary(a.getSalary() - i);
-    }
 
     public String getBankName() {
         return bankName;
     }
 
-    public void createCustomerAccount(Customer cus) {
-        Officer off1 = new Officer();
-        off1.createCustomerAccount(cus);
-    }
 
     public void setBankName(String bankName) {
         this.bankName = bankName;
@@ -60,7 +50,7 @@ public class Manager extends Employee{
 
     public void setSalary(int salary, int index) {
         Base empBase = new Base();
-        Employee temp = (Employee) empBase.getEmployees().get(index);
+        Employee temp = (Employee) empBase.getEmployeeBase().get(index);
         temp.setSalary(salary);
     }
 

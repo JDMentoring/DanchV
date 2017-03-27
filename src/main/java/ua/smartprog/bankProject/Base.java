@@ -10,42 +10,43 @@ public class Base {
     private static ArrayList<Officer> officerBase = new ArrayList<Officer>();
     private static ArrayList<Consulter> consulterBase = new ArrayList<Consulter>();
     private static ArrayList<Customer> customerBase = new ArrayList<Customer>();
+    private static ArrayList<Manager> managerBase = new ArrayList<Manager>();
 
-    public static ArrayList<Customer> getCustomerBase() {
-        return customerBase;
+
+    public static Customer getCustomerBase(int index) {
+        return customerBase.get(index);
     }
 
     public static void setCustomerBase(ArrayList<Customer> customerBase) {
         Base.customerBase = customerBase;
     }
 
-    public static ArrayList<Manager> getManagerBase() {
-        return managerBase;
+    public static Manager getManagerBase(int index) {
+        return managerBase.get(index);
     }
 
     public static void setManagerBase(ArrayList<Manager> managerBase) {
         Base.managerBase = managerBase;
     }
 
-    public static ArrayList<Consulter> getConsulterBase() {
-        return consulterBase;
+    public static Consulter getConsulterBase(int index) {
+        return consulterBase.get(index);
     }
 
     public static void setConsulterBase(ArrayList<Consulter> consulterBase) {
         Base.consulterBase = consulterBase;
     }
 
-    public static ArrayList<Officer> getOfficerBase() {
-        return officerBase;
+    public static Officer getOfficerBase(int index) {
+        return officerBase.get(index);
     }
 
     public static void setOfficerBase(ArrayList<Officer> officerBase) {
         Base.officerBase = officerBase;
     }
 
-    private static ArrayList<Manager> managerBase = new ArrayList<Manager>();
 
-    public ArrayList getAccs() {
+    public static ArrayList<Account> getAccs() {
         return accountsBase;
     }
 
@@ -53,8 +54,8 @@ public class Base {
         accountsBase.add(newbie);
     }
 
-    public static ArrayList<Account> getAccountsBase() {
-        return accountsBase;
+    public static Account getAccountsBase(int index) {
+        return accountsBase.get(index);
     }
 
     public static void addAccount() {
@@ -70,15 +71,23 @@ public class Base {
         employeeBase.add(newbie);
     }
 
-    public static ArrayList<Employee> getEmployees() {
+    public static ArrayList<Employee> getEmployeeBase() {
         return employeeBase;
     }
 
-    public void addPotentialEmployee(Employee newbie) {
-        potentialEmployeeBase.add(newbie);
+    public static Employee getEmployee(int index) {
+        return employeeBase.get(index);
     }
 
-    public ArrayList<Employee> getPotentialEmployees() {
-        return potentialEmployeeBase;
+    public static void addCustomer(String fname, String sname, int year, int month, int day, String phoneNumber, int money, String pass) {
+        customerBase.add(new Customer(fname, sname, year, month, day, phoneNumber, money, pass));
+    }
+
+    public static void addPotentialEmployee(String fname, String sname, int year, int month, int day) {
+        potentialEmployeeBase.add(new Employee(fname, sname, year, month, day));
+    }
+
+    public static Employee getPotentialEmployees(int index) {
+        return potentialEmployeeBase.get(index);
     }
 }
