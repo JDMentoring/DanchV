@@ -7,6 +7,9 @@ public class Base {
     private static ArrayList<Account> accountsBase = new ArrayList<Account>();
     private static ArrayList<Employee> employeeBase = new ArrayList<Employee>();
     private static ArrayList<Employee> potentialEmployeeBase = new ArrayList<Employee>();
+    private static ArrayList<Officer> officerBase = new ArrayList<Officer>();
+    private static ArrayList<Consulter> consulterBase = new ArrayList<Consulter>();
+    private static ArrayList<Manager> managerBase = new ArrayList<Manager>();
 
     public ArrayList getAccs() {
         return accountsBase;
