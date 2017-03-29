@@ -5,6 +5,7 @@ import java.util.GregorianCalendar;
 import java.util.Scanner;
 import java.util.Random;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
 import org.apache.log4j.Logger;
 
 public class Account implements Serializable {
@@ -58,6 +59,16 @@ public class Account implements Serializable {
             num.append(temp);
         }
         return num.toString();
+    }
+
+    public void commitTransaction() {
+        int amount = 0;
+        String accountTo = null;
+        amount = scan(amount);
+        System.out.println("Account number to send money to:");
+        accountTo = scanText(accountTo);
+        Transaction tr = new Transaction();
+        tr.create(this.cardNumber, accountTo, amount);
     }
 
     public void checkCardDate() {
@@ -114,6 +125,16 @@ public class Account implements Serializable {
         }
     }
 
+    public int scan(int i) {
+        Scanner scan = new Scanner(System.in);
+        scan.nextInt();
+        return i;
+    }
+public String scanText(String i){
+    Scanner scan = new Scanner(System.in);
+    i = scan.next();
+    return i;
+}
     //finish refactor
     public static String generateDefaultPassword() {
         //retrying
