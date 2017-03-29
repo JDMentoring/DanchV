@@ -32,5 +32,7 @@ public class TATest {
         Transaction tr2 = new Transaction();
         tr.create("0000000000000000", "1111111111111111", 10);
         assertEquals(tr.cardFrom, tr2.cardFrom);
+        assertEquals(tr.cardTo, tr2.cardTo);
+        assertEquals(tr.amount, tr2.amount);
     }
 }
