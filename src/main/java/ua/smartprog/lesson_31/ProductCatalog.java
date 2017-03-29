@@ -7,11 +7,11 @@ public class ProductCatalog {
     private ArrayList<Product> prods = null;
 
     public ProductCatalog(ArrayList<Product> prods) {
-        prods = new ArrayList<>(prods);
+        prods = new ArrayList<Product>(prods);
     }
 
     public ProductCatalog(){
-        prods = new ArrayList<>();
+        prods = new ArrayList<Product>();
     }
 
     public ArrayList<Product> getProds() {

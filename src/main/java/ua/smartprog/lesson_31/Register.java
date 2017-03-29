@@ -8,7 +8,7 @@ public class Register {
     private ProductCatalog calatog = null;
 
     public Register(ArrayList<Sale> sales, ProductCatalog productCatalog) {
-        sales = new ArrayList<>(sales);
+        sales = new ArrayList<Sale>(sales);
         calatog = productCatalog;
     }
 

@@ -61,6 +61,8 @@ public class Transaction {
         prevNum++;
     }
 
+
+
     @Override
     public String toString() {
         return "Transaction{" +

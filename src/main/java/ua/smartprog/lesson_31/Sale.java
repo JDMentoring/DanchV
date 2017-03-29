@@ -9,12 +9,12 @@ public class Sale {
 
     public Sale(ArrayList<SalesLineItem> items) {
         setId();
-        this.items = new ArrayList<>(items);
+        this.items = new ArrayList<SalesLineItem>(items);
     }
 
     public Sale() {
         setId();
-        this.items = new ArrayList<>();
+        this.items = new ArrayList<SalesLineItem>();
     }
 
     public void addLineItem(Product product, int q) {
