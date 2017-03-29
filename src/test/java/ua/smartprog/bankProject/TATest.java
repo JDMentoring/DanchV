@@ -7,26 +7,26 @@ import static org.junit.Assert.*;
 
 public class TATest {
     @Test
-    public void SetTransactionNumberTest() {
+    public void SetTransactionNumberTest() throws Exception{
         Transaction tr1 = new Transaction();
         Transaction tr2 = new Transaction();
         assertEquals(tr1.transactionNumber, tr2.transactionNumber - 1);
     }
 
     @Test
-    public void checkAccountsTest() {
+    public void checkAccountsTest() throws Exception{
         Transaction tr = new Transaction();
         assertEquals(tr.checkAccounts("123123123", "11231232"), false);
     }
 
     @Test
-    public void checkAmmountTest() {
+    public void checkAmmountTest() throws Exception{
         Transaction tr = new Transaction();
         assertEquals(tr.checkAmmount(-1), false);
     }
 
     @Test
-    public void createTest(){
+    public void createTest()throws Exception{
         Transaction tr = new Transaction();
         tr.create("0000000000000000", "1111111111111111", 10);
         Transaction tr2 = new Transaction();

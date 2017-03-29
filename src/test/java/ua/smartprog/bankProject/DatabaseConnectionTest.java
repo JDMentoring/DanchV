@@ -1,4 +1,4 @@
-package ua.smartprog.bankProject;
+/*package ua.smartprog.bankProject;
 
 import org.junit.Test;
 
@@ -33,4 +33,4 @@ public class DatabaseConnectionTest {
         DatabaseConnection.addTableRow(obj1);
     }
 
-}
+}*/

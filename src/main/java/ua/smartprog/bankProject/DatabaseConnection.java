@@ -1,4 +1,4 @@
-package ua.smartprog.bankProject;
+/*package ua.smartprog.bankProject;
 
 import java.sql.*;
 
@@ -179,5 +179,5 @@ public class DatabaseConnection {
         }
     }
 
-}
+}*/
 

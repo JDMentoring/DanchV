@@ -1,6 +1,7 @@
 package ua.smartprog.bankProject;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 import java.util.Random;
@@ -11,11 +12,12 @@ import org.apache.log4j.Logger;
 public class Account implements Serializable {
     private static final Logger log = Logger.getLogger(Account.class);
 
-    public String cardNumber;
-    public int balance;
-    public String password;
-    public GregorianCalendar cardDate;
+    private String cardNumber;
+    private int balance;
+    private String password;
+    private GregorianCalendar cardDate;
     private GregorianCalendar cardEnd;
+    private ArrayList<Transaction> trs = new ArrayList<Transaction>();
 
     public Account() {
         this.cardNumber = generateCardNumber();
@@ -67,8 +69,8 @@ public class Account implements Serializable {
         amount = scan(amount);
         System.out.println("Account number to send money to:");
         accountTo = scanText(accountTo);
-        Transaction tr = new Transaction();
-        tr.create(this.cardNumber, accountTo, amount);
+        Transaction tempT = Transaction.create(this.cardNumber, accountTo, amount);
+        trs.add(tempT);
     }
 
     public void checkCardDate() {
@@ -190,14 +192,16 @@ public String scanText(String i){
         System.out.println("Number: " + this.cardNumber);
     }
 
-    public static void saveData(String filename, Account accObject) {
+    public static void saveData(String filename, Account accObject) throws IOException{
+        FileOutputStream fileOut = null;
+        ObjectOutputStream objOut = null;
+
         try {
-            FileOutputStream fileOut = new FileOutputStream(filename + ".ser");
-            ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
+            fileOut = new FileOutputStream(filename + ".ser");
+            objOut = new ObjectOutputStream(fileOut);
             objOut.writeObject(accObject);
             log.info("Serialized!!!");
-            fileOut.close();
-            objOut.close();
+
             log.info("Finish all streams!!!");
         } catch (FileNotFoundException e) {
             System.out.println("File not found!!!");
@@ -207,6 +211,9 @@ public String scanText(String i){
             System.out.println("Object not found!!!");
             log.error("Object not found!!!");
             e.printStackTrace();
+        }finally {
+            fileOut.close();
+            objOut.close();
         }
     }
 }
