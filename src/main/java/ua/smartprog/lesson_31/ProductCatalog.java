@@ -19,8 +19,6 @@ public class ProductCatalog {
     }
 
     public void setProds(String descr, int price) {
-        Scanner desPrScan = new Scanner(System.in);
-        
         prods.add(new Product(descr, price));
     }
 

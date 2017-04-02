@@ -17,6 +17,10 @@ public class Register {
         calatog = new ProductCatalog();
     }
 
+    public Sale getSale(){
+        return sales.get(sales.size());
+    }
+
     public Sale newSale() {
         Sale temp = new Sale();
         sales.add(temp);
