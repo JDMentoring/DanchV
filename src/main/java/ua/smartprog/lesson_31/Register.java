@@ -32,6 +32,12 @@ public class Register {
         tempQuantity = input.nextInt();
         sale.addLineItem(tempPr, tempQuantity);
     }
+
+    public void printSale() {
+        for (int i = 0; i < sales.size(); i++) {
+            System.out.println(sales.get(i).toString());
+        }
+    }
 }
 
 
