@@ -27,4 +27,9 @@ public class SalesLineItem {
         return item.getPrice() * quantity;
     }
 
+    @Override
+    public String toString() {
+        return item.toString()
+                + ", quantity = " + quantity + "\n";
+    }
 }

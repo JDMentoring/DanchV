@@ -35,4 +35,25 @@ public class Sale {
         return summ;
     }
 
+    public String getSale(){
+        String total = new String();
+           for(int i = 0; i < items.size(); i++){
+               total = total + items.get(i).toString() + "\n";
+           }
+        return total;
+    }
+    public int getTotalPrice(){
+        int total = 0;
+        for(int i = 0; i < items.size(); i++){
+            total = total + items.get(i).getSubTotal();
+        }
+        return total;
+    }
+
+    @Override
+    public String toString() {
+        return "Sale number : " + this.id + "\n"
+                + getSale()
+                + "Total Price" + getTotalPrice();
+    }
 }
