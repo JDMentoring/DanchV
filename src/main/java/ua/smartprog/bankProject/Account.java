@@ -21,10 +21,18 @@ public class Account implements Serializable {
 
     public Account() {
         this.cardNumber = generateCardNumber();
-        System.out.println(cardNumber);
         this.balance = 0;
         this.password = generateDefaultPassword();
-        System.out.println(password);
+        cardDate = new GregorianCalendar();
+        cardEnd = new GregorianCalendar();
+        cardEnd.add(GregorianCalendar.YEAR, 3);
+    }
+
+
+    public Account(String number,int balance, String password) {
+        this.cardNumber = number;
+        this.balance = balance;
+        this.password = password;
         cardDate = new GregorianCalendar();
         cardEnd = new GregorianCalendar();
         cardEnd.add(GregorianCalendar.YEAR, 3);
@@ -39,7 +47,7 @@ public class Account implements Serializable {
         cardEnd.add(GregorianCalendar.YEAR, 10);
     }
 
-    public Account(String cardType, int balance, String password) {
+   /* public Account(String cardType, int balance, String password) {
         if (cardType == "VISA") this.cardNumber = generateVCNumber();
         else this.cardNumber = generateCardNumber();
         this.balance = balance;
@@ -47,7 +55,7 @@ public class Account implements Serializable {
         cardDate = new GregorianCalendar();
         cardEnd = new GregorianCalendar();
         cardEnd.add(GregorianCalendar.YEAR, 10);
-    }
+    }*/
 
     public String getCardNumber() {
         return cardNumber;

@@ -12,7 +12,7 @@ public class Customer extends Human {
         this.customerAccount = new ArrayList<Account>();
         this.customerAccount.ensureCapacity(1);
         this.customerAccount.add(new Account());
-        Account.saveData("Account", customerAccount.get(customerAccount.size() - 1));
+       // Account.saveData("Account", customerAccount.get(customerAccount.size() - 1));
 
     }
 
@@ -24,7 +24,7 @@ public class Customer extends Human {
         this.customerAccount = new ArrayList<Account>();
         this.customerAccount.ensureCapacity(1);
         this.customerAccount.add(new Account(money, pass));
-        Account.saveData("Account", customerAccount.get(customerAccount.size() - 1));
+       // Account.saveData("Account", customerAccount.get(customerAccount.size() - 1));
 
     }
 
