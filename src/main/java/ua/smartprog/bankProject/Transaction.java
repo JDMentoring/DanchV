@@ -14,7 +14,7 @@ public class Transaction {
 
     public static Transaction create(String cardFrom, String cardTo, int amount) {
         do {
-            if (checkAccounts(cardFrom, cardTo) && checkAmmount(amount)) {
+            if (checkAccounts(cardFrom, cardTo) && checkAmount(amount)) {
                 success = true;
             } else {
                 System.out.println("Check the inserted data!!");
@@ -32,11 +32,16 @@ public class Transaction {
         }
     }
 
-    public static boolean checkAmmount(int ammount) {
+    public static boolean checkAmount(int ammount) {
         if (ammount > 0) {
             return true;
         } else {
-            return false;
+            try {
+                throw new LessThanZeroException("The amount is less than zero");
+            } catch (LessThanZeroException e) {
+                e.printStackTrace();
+                return false;
+            }
         }
     }
 

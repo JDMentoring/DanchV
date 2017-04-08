@@ -22,7 +22,7 @@ public class TATest {
     @Test
     public void checkAmmountTest() throws Exception{
         Transaction tr = new Transaction();
-        assertEquals(tr.checkAmmount(-1), false);
+        tr.checkAmount(1);
     }
 
     @Test
