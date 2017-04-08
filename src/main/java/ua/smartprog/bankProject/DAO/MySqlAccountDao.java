@@ -2,14 +2,13 @@ package ua.smartprog.bankProject.DAO;
 
 import ua.smartprog.bankProject.Account;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
+import java.util.Scanner;
 
 public class MySqlAccountDao implements AccountDao {
     private final Connection connection;
+    private static final String CREATE_NEW_ACCOUNT = "INSERT INTO Account (cardNumber, balance, password) VALUES(?,?,?)";
     private static final String UPDATE_ACCOUNT_DB = "UPDATE Account \n" +
             "SET balance = ?, password = ? \n" +
             "WHERE password = ? / cardNumber = ?";
@@ -41,7 +40,33 @@ public class MySqlAccountDao implements AccountDao {
     }
 
     @Override
-    public void update(Account account) {
+    public void update(Account account) throws SQLException{
+        Connection connection = null;
+        PreparedStatement prStatement = null;
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Type old password:");
+        String oldPassword = scan.next();
+        System.out.println("Type new password:");
+        String newPassword = scan.next();
+        MySqlDaoFactory msdf = new MySqlDaoFactory();
+        try {
+            connection = msdf.getConnection();
+            prStatement = connection.prepareStatement(UPDATE_ACCOUNT_DB);
+            prStatement.setInt(1, account.checkBalance());
+            prStatement.setString(2, newPassword);
+            prStatement.setString(3, oldPassword);
+            prStatement.setString(4, account.getCardNumber());
+            prStatement.execute();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (prStatement != null) {
+                prStatement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        }
 
     }
 
@@ -52,6 +77,10 @@ public class MySqlAccountDao implements AccountDao {
 
     @Override
     public List<Account> getAll() throws SQLException {
-        return null;
+        Connection connection = null;
+        Statement st = null;
+        String query = "SELECT * FROM account";
+        st = connection.createStatement();
+        ResultSet rs = st.executeQuery(query);
     }
 }
