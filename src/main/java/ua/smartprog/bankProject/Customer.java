@@ -36,7 +36,6 @@ public class Customer extends Human {
         }
 
     }
-
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
