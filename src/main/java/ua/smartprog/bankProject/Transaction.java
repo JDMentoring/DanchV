@@ -13,14 +13,18 @@ public class Transaction {
     static boolean success;
 
     public static Transaction create(String cardFrom, String cardTo, int amount) {
-        do {
+
             if (checkAccounts(cardFrom, cardTo) && checkAmount(amount)) {
                 success = true;
             } else {
-                System.out.println("Check the inserted data!!");
+                try{
+                    throw new FalseArgumentsException("One or several arguments are incorrect!!!");
+                }
+                catch (FalseArgumentsException e){
+                    e.printStackTrace();
+                    success = false;
+                }
             }
-        }
-        while (success == false);
         return new Transaction(cardFrom, cardTo, amount);
     }
 
