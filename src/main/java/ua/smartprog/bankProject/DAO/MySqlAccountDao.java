@@ -10,6 +10,9 @@ import java.util.List;
 
 public class MySqlAccountDao implements AccountDao {
     private final Connection connection;
+    private static final String UPDATE_ACCOUNT_DB = "UPDATE Account \n" +
+            "SET balance = ?, password = ? \n" +
+            "WHERE password = ? / cardNumber = ?";
 
     public MySqlAccountDao(Connection connection) {
         this.connection = connection;
