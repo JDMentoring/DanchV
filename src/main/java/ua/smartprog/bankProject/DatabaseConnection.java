@@ -1,4 +1,4 @@
-/*package ua.smartprog.bankProject;
+package ua.smartprog.bankProject;
 
 import java.sql.*;
 
@@ -78,7 +78,7 @@ public class DatabaseConnection {
                 "`cardNumber` ," +
                 "`password`)"
                 + "\n VALUES " +
-                "( '" + infoobj.balance + "', '" + infoobj.cardNumber + "', '" + infoobj.password + "');";
+                "( '" + infoobj.checkBalance() + "', '" + infoobj.getCardNumber() + "', '" + infoobj.passForDB() + "');";
 
         try {
             connection = getConnection();
@@ -179,5 +179,5 @@ public class DatabaseConnection {
         }
     }
 
-}*/
+}
 

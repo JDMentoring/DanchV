@@ -1,5 +1,6 @@
 package ua.smartprog.bankProject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,7 +13,11 @@ public class Customer extends Human {
         this.customerAccount = new ArrayList<Account>();
         this.customerAccount.ensureCapacity(1);
         this.customerAccount.add(new Account());
-       // Account.saveData("Account", customerAccount.get(customerAccount.size() - 1));
+        try {
+            Account.saveData("Account", customerAccount.get(customerAccount.size() - 1));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -24,7 +29,11 @@ public class Customer extends Human {
         this.customerAccount = new ArrayList<Account>();
         this.customerAccount.ensureCapacity(1);
         this.customerAccount.add(new Account(money, pass));
-       // Account.saveData("Account", customerAccount.get(customerAccount.size() - 1));
+        try {
+            Account.saveData("Account", customerAccount.get(customerAccount.size() - 1));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

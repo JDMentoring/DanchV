@@ -76,7 +76,7 @@ public class Account implements Serializable {
         String accountTo = null;
         amount = scan(amount);
         System.out.println("Account number to send money to:");
-        accountTo = scanText(accountTo);
+        accountTo = scanText();
         Transaction tempT = Transaction.create(this.cardNumber, accountTo, amount);
         trs.add(tempT);
     }
@@ -140,11 +140,20 @@ public class Account implements Serializable {
         scan.nextInt();
         return i;
     }
-public String scanText(String i){
+public String scanText(){
     Scanner scan = new Scanner(System.in);
-    i = scan.next();
+    String i = scan.next();
     return i;
 }
+    public String passForDB(){
+        if(scanText() == this.password){
+            return password;
+        }
+        else{
+            return "incorrect password inserted";
+        }
+    }
+
     //finish refactor
     public static String generateDefaultPassword() {
         //retrying
