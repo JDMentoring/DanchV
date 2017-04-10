@@ -129,9 +129,11 @@ public class MySqlAccountDao implements AccountDao {
         String query = "SELECT * FROM account";
         st = connection.createStatement();
         ResultSet rs = st.executeQuery(query);
-        for (int i = 0; i < rs.getFetchSize(); i++) {
+
+        while(rs.next()){
+            //Account acTemp = new Account();
+            //TODO P1 - Перевантажити сетери для Account
             accs.add(new Account(rs.getString("cardNumber"), rs.getInt("balance"), rs.getString("password")));
-            rs.next();
         }
         return accs;
     }
