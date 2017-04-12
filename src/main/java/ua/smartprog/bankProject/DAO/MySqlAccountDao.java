@@ -137,4 +137,8 @@ public class MySqlAccountDao implements AccountDao {
         }
         return accs;
     }
+
+
+
+    //public abstract class AbstractJDBCDao<T, PK extends Serializable> implements GenericDao<T, PK>
 }
