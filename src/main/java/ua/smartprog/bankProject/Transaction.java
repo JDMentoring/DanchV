@@ -14,17 +14,16 @@ public class Transaction {
 
     public static Transaction create(String cardFrom, String cardTo, int amount) {
 
-            if (checkAccounts(cardFrom, cardTo) && checkAmount(amount)) {
-                success = true;
-            } else {
-                try{
-                    throw new FalseArgumentsException("One or several arguments are incorrect!!!");
-                }
-                catch (FalseArgumentsException e){
-                    e.printStackTrace();
-                    success = false;
-                }
+        if (checkAccounts(cardFrom, cardTo) && checkAmount(amount)) {
+            success = true;
+        } else {
+            try {
+                throw new FalseArgumentsException("One or several arguments are incorrect!!!");
+            } catch (FalseArgumentsException e) {
+                e.printStackTrace();
+                success = false;
             }
+        }
         return new Transaction(cardFrom, cardTo, amount);
     }
 
@@ -71,13 +70,12 @@ public class Transaction {
     }
 
 
-
     @Override
     public String toString() {
         return "Transaction{" +
                 "transactionNumber=" + transactionNumber +
                 ", transactionDate=" + transactionDate.get(Calendar.DATE) + "." +
-                transactionDate.get(Calendar.MONTH) + "."  +
+                transactionDate.get(Calendar.MONTH) + "." +
                 transactionDate.get(Calendar.YEAR) + " " +
                 transactionDate.get(Calendar.HOUR) + ":" +
                 transactionDate.get(Calendar.MINUTE) + ":" +

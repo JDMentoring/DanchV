@@ -8,10 +8,12 @@ import java.util.Random;
 
 import com.sun.org.apache.xpath.internal.SourceTree;
 import org.apache.log4j.Logger;
+import ua.smartprog.bankProject.DAO.Identified;
 
-public class Account implements Serializable {
+public class Account implements Serializable, Identified<Integer> {
     private static final Logger log = Logger.getLogger(Account.class);
 
+    private int id;
     private String cardNumber;
     private int balance;
     private String password;
@@ -29,7 +31,7 @@ public class Account implements Serializable {
     }
 
 
-    public Account(String number,int balance, String password) {
+    public Account(String number, int balance, String password) {
         this.cardNumber = number;
         this.balance = balance;
         this.password = password;
@@ -140,16 +142,17 @@ public class Account implements Serializable {
         scan.nextInt();
         return i;
     }
-public String scanText(){
-    Scanner scan = new Scanner(System.in);
-    String i = scan.next();
-    return i;
-}
-    public String passForDB(){
-        if(scanText() == this.password){
+
+    public String scanText() {
+        Scanner scan = new Scanner(System.in);
+        String i = scan.next();
+        return i;
+    }
+
+    public String passForDB() {
+        if (scanText() == this.password) {
             return password;
-        }
-        else{
+        } else {
             return "incorrect password inserted";
         }
     }
@@ -209,7 +212,7 @@ public String scanText(){
         System.out.println("Number: " + this.cardNumber);
     }
 
-    public static void saveData(String filename, Account accObject) throws IOException{
+    public static void saveData(String filename, Account accObject) throws IOException {
         FileOutputStream fileOut = null;
         ObjectOutputStream objOut = null;
 
@@ -228,9 +231,14 @@ public String scanText(){
             System.out.println("Object not found!!!");
             log.error("Object not found!!!");
             e.printStackTrace();
-        }finally {
+        } finally {
             fileOut.close();
             objOut.close();
         }
+    }
+
+    @Override
+    public Integer getId() {
+        return this.id;
     }
 }
