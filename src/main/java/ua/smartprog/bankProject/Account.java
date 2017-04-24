@@ -63,6 +63,34 @@ public class Account implements Serializable, Identified<Integer> {
         return cardNumber;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTrs(ArrayList<Transaction> trs) {
+        this.trs = trs;
+    }
+
+    public void setCardEnd(GregorianCalendar cardEnd) {
+        this.cardEnd = cardEnd;
+    }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setCardDate(GregorianCalendar cardDate) {
+        this.cardDate = cardDate;
+    }
+
     public String generateCardNumber() {
         Random rand = new Random();
         StringBuilder num = new StringBuilder();

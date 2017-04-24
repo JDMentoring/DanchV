@@ -41,8 +41,8 @@ public class MySqlAccountDao extends AbstractDAO<Account, Integer> {
             while (rs.next()) {
                 Account ac = new Account();
                 ac.setId(rs.getInt("id"));
-                ac.setNumber(rs.getString("number"));
-                ac.setBalance(rs.getDouble("balance"));
+                ac.setCardNumber(rs.getString("number"));
+                ac.setBalance(rs.getInt("balance"));
                 ac.setPassword(rs.getString("password"));
                 result.add(ac);
             }
