@@ -1,8 +1,10 @@
-package ua.smartprog.bankProject;
+package ua.smartprog.bankProject.other;
 
 import java.sql.*;
 
 import org.apache.log4j.Logger;
+import ua.smartprog.bankProject.domain.Account;
+import ua.smartprog.bankProject.domain.Customer;
 
 public class DatabaseConnection {
     private static final String DRIVERNAME = "com.mysql.jdbc.Driver";

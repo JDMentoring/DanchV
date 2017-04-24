@@ -1,4 +1,4 @@
-package ua.smartprog.bankProject;
+package ua.smartprog.bankProject.domain;
 
 public class Employee extends Human implements Comparable<Employee> {
     private static int nextId = 1;

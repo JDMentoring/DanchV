@@ -1,4 +1,4 @@
-package ua.smartprog.bankProject.DAO;
+package ua.smartprog.bankProject.dao;
 
 import java.io.Serializable;
 

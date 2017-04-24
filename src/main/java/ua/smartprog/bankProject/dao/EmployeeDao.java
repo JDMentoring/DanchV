@@ -1,6 +1,6 @@
-package ua.smartprog.bankProject.DAO;
+package ua.smartprog.bankProject.dao;
 
-import ua.smartprog.bankProject.Employee;
+import ua.smartprog.bankProject.domain.Employee;
 
 import java.sql.SQLException;
 import java.util.List;

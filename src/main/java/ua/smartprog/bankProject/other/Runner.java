@@ -1,7 +1,4 @@
-package ua.smartprog.bankProject;
-
-import java.sql.SQLException;
-import java.util.ArrayList;
+package ua.smartprog.bankProject.other;
 
 public class Runner {
     public static void main(String[] args) {

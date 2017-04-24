@@ -1,4 +1,4 @@
-package ua.smartprog.bankProject;
+package ua.smartprog.bankProject.other;
 
 /**
  * Created by Admin on 08.04.2017.

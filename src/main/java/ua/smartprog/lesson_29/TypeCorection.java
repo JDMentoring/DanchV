@@ -1,8 +1,8 @@
 package ua.smartprog.lesson_29;
 
-import ua.smartprog.bankProject.Consulter;
-import ua.smartprog.bankProject.Employee;
-import ua.smartprog.bankProject.Manager;
+import ua.smartprog.bankProject.domain.Consulter;
+import ua.smartprog.bankProject.domain.Employee;
+import ua.smartprog.bankProject.domain.Manager;
 
 import java.util.ArrayList;
 

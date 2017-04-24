@@ -1,8 +1,7 @@
 package ua.smartprog.bankProject;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
+import ua.smartprog.bankProject.domain.Transaction;
 
 public class TransactionTest {
     @Test

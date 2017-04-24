@@ -1,6 +1,4 @@
-package ua.smartprog.bankProject.DAO;
-
-import ua.smartprog.bankProject.Employee;
+package ua.smartprog.bankProject.dao;
 
 import java.sql.Connection;
 import java.sql.SQLException;

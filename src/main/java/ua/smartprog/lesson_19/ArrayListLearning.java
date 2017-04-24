@@ -1,6 +1,6 @@
 package ua.smartprog.lesson_19;
 
-import ua.smartprog.bankProject.Account;
+import ua.smartprog.bankProject.domain.Account;
 import java.util.ArrayList;
 
 public class ArrayListLearning {

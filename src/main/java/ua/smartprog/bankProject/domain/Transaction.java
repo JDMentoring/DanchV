@@ -1,4 +1,7 @@
-package ua.smartprog.bankProject;
+package ua.smartprog.bankProject.domain;
+
+import ua.smartprog.bankProject.other.FalseArgumentsException;
+import ua.smartprog.bankProject.other.LessThanZeroException;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;

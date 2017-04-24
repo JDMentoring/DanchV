@@ -1,4 +1,6 @@
-package ua.smartprog.bankProject;
+package ua.smartprog.bankProject.domain;
+
+import ua.smartprog.bankProject.domain.Employee;
 
 public interface ToEmployee {
     public Employee newEmployee();

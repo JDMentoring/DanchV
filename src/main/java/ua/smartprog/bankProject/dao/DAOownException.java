@@ -1,4 +1,4 @@
-package ua.smartprog.bankProject.DAO;
+package ua.smartprog.bankProject.dao;
 
 public class DAOownException extends Exception {
     public DAOownException() {

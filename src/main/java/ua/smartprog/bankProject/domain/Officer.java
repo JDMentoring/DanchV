@@ -1,6 +1,6 @@
-package ua.smartprog.bankProject;
+package ua.smartprog.bankProject.domain;
 
-import com.sun.corba.se.spi.ior.MakeImmutable;
+import ua.smartprog.bankProject.other.Base;
 
 import java.util.Random;
 

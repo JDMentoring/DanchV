@@ -1,6 +1,7 @@
-package ua.smartprog.bankProject.DAO;
+package ua.smartprog.bankProject.dao;
 
 import org.junit.Test;
+import ua.smartprog.bankProject.mysql.MySqlDaoFactory;
 
 import java.sql.Connection;
 

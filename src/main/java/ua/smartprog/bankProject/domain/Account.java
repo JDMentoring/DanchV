@@ -1,4 +1,4 @@
-package ua.smartprog.bankProject;
+package ua.smartprog.bankProject.domain;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -6,9 +6,8 @@ import java.util.GregorianCalendar;
 import java.util.Scanner;
 import java.util.Random;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
 import org.apache.log4j.Logger;
-import ua.smartprog.bankProject.DAO.Identified;
+import ua.smartprog.bankProject.dao.Identified;
 
 public class Account implements Serializable, Identified<Integer> {
     private static final Logger log = Logger.getLogger(Account.class);
@@ -268,5 +267,9 @@ public class Account implements Serializable, Identified<Integer> {
     @Override
     public Integer getId() {
         return this.id;
+    }
+
+    public int getBalance() {
+        return balance;
     }
 }

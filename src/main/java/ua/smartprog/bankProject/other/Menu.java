@@ -1,4 +1,6 @@
-package ua.smartprog.bankProject;
+package ua.smartprog.bankProject.other;
+
+import ua.smartprog.bankProject.domain.Employee;
 
 import java.util.Scanner;
 

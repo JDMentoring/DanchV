@@ -1,6 +1,7 @@
 package ua.smartprog.bankProject;
 
 import org.junit.Test;
+import ua.smartprog.bankProject.domain.Transaction;
 
 import static org.junit.Assert.*;
 

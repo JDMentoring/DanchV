@@ -1,8 +1,8 @@
-/*package ua.smartprog.bankProject;
+package ua.smartprog.bankProject;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
+import ua.smartprog.bankProject.domain.Account;
+import ua.smartprog.bankProject.other.DatabaseConnection;
 
 public class DatabaseConnectionTest {
     @Test
@@ -33,4 +33,4 @@ public class DatabaseConnectionTest {
         DatabaseConnection.addTableRow(obj1);
     }
 
-}*/
+}

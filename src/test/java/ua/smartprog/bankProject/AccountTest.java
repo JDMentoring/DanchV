@@ -2,8 +2,7 @@ package ua.smartprog.bankProject;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
-
-import java.util.GregorianCalendar;
+import ua.smartprog.bankProject.domain.Account;
 
 public class AccountTest {
     @Test // Task 1502

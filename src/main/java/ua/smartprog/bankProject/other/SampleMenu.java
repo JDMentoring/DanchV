@@ -1,4 +1,4 @@
-package ua.smartprog.bankProject;
+package ua.smartprog.bankProject.other;
 
 import java.util.Scanner;
 

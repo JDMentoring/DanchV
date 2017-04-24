@@ -1,6 +1,8 @@
-package ua.smartprog.bankProject;
+package ua.smartprog.bankProject.domain;
 
-public class Manager extends Employee{
+import ua.smartprog.bankProject.other.Base;
+
+public class Manager extends Employee {
     private int tax;
     private String bankName;
 

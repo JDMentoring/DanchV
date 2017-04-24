@@ -1,12 +1,12 @@
-package ua.smartprog.bankProject.DAO;
+package ua.smartprog.bankProject.mysql;
 
-import ua.smartprog.bankProject.Account;
+import ua.smartprog.bankProject.dao.AbstractDAO;
+import ua.smartprog.bankProject.dao.DAOownException;
+import ua.smartprog.bankProject.domain.Account;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
 
 public class MySqlAccountDao extends AbstractDAO<Account, Integer> {
 
@@ -21,7 +21,7 @@ public class MySqlAccountDao extends AbstractDAO<Account, Integer> {
 
     @Override
     public String getCreateQuery() {
-        return null;
+        return "INSERT INTO Account (id, cardNumber, password, balance) VALUES(?, ?, ?, ?);";
     }
 
     @Override
@@ -32,6 +32,21 @@ public class MySqlAccountDao extends AbstractDAO<Account, Integer> {
     @Override
     public String getDeleteQuery() {
         return null;
+    }
+
+    @Override
+    public void prepareStInsert(PreparedStatement stm, Account obj) throws DAOownException {
+        int accountID = (obj.getId() == null) ? 0 : obj.getId();
+
+        try {
+            stm.setInt(1, accountID);
+            stm.setString(2, obj.getCardNumber());
+            stm.setString(3, obj.passForDB());
+            stm.setInt(4, obj.getBalance());
+        } catch (Exception e) {
+            throw new DAOownException(e);
+        }
+
     }
 
     @Override

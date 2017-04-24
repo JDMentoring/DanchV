@@ -1,4 +1,4 @@
-package ua.smartprog.bankProject;
+package ua.smartprog.bankProject.domain;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;

@@ -1,4 +1,4 @@
-package ua.smartprog.bankProject;
+package ua.smartprog.bankProject.domain;
 
 import java.io.IOException;
 import java.util.ArrayList;

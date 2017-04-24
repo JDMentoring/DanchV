@@ -1,4 +1,7 @@
-package ua.smartprog.bankProject;
+package ua.smartprog.bankProject.domain;
+
+import ua.smartprog.bankProject.other.Base;
+
 public class Consulter extends Employee {
     private int experience;
 
