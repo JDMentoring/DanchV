@@ -62,7 +62,7 @@ public class Account implements Serializable, Identified<Integer> {
         return cardNumber;
     }
 
-    public void setId(int id) {
+    protected void setId(int id) {
         this.id = id;
     }
 

@@ -23,12 +23,6 @@ public abstract class AbstractDAO<T extends Identified<PK>, PK extends Integer> 
 
     public abstract List<T> parsingResultSet(ResultSet rs) throws DAOownException;
 
-
-    @Override
-    public T create() throws DAOownException {
-        return null;
-    }
-
     @Override
     public T extCreate(T obj) throws DAOownException {
         T instance;

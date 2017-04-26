@@ -10,8 +10,18 @@ import java.util.List;
 
 public class MySqlAccountDao extends AbstractDAO<Account, Integer> {
 
+    private class ExtAccount extends Account{
+        public void setID(int id){ super.setId(id);}
+    }
+
     public MySqlAccountDao(Connection connection) {
         super(connection);
+    }
+
+    @Override
+    public Account create() throws DAOownException {
+        Account ac = new Account();
+        return extCreate(ac);
     }
 
     @Override
@@ -54,8 +64,8 @@ public class MySqlAccountDao extends AbstractDAO<Account, Integer> {
         LinkedList<Account> result = new LinkedList<Account>();
         try {
             while (rs.next()) {
-                Account ac = new Account();
-                ac.setId(rs.getInt("id"));
+                ExtAccount ac = new ExtAccount();
+                ac.setID(rs.getInt("id"));
                 ac.setCardNumber(rs.getString("number"));
                 ac.setBalance(rs.getInt("balance"));
                 ac.setPassword(rs.getString("password"));
