@@ -13,7 +13,7 @@ public class heap_sort<T extends Number> {
             makeSubHeap(array, len, 0);
         }
     }
-
+//1
     public void makeSubHeap(T[] arrayToSubHeap, int length, int place) {
         while (2 * place + 1 < length) {
             int temp = 2 * place + 1;
