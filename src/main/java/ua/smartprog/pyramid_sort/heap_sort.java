@@ -18,11 +18,13 @@ public class heap_sort<T extends Number> {
         while (2 * place + 1 < length) {
             int temp = 2 * place + 1;
 
-            if (2 * place + 2 < length && arrayToSubHeap[2 * place + 1] < arrayToSubHeap[2 * place + 2]) {
+            if (2 * place + 2 < length && arrayToSubHeap[2 * place + 1].doubleValue() < arrayToSubHeap[2 * place + 2].doubleValue()) {
                 temp = 2 * place + 2;
             }
 
-            if (arrayToSubHeap[place] < arrayToSubHeap[temp]) {
+
+
+            if (arrayToSubHeap[place].doubleValue() < arrayToSubHeap[temp].doubleValue()) {
                 swap(arrayToSubHeap, temp, place);
             } else {
                 break;

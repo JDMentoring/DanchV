@@ -1,4 +1,4 @@
-package ua.smartprog.bankProject;
+/*package ua.smartprog.bankProject;
 
 import org.junit.Test;
 import ua.smartprog.bankProject.domain.Transaction;
@@ -37,3 +37,4 @@ public class TATest {
         assertEquals(tr.amount, tr2.amount);
     }
 }
+*/

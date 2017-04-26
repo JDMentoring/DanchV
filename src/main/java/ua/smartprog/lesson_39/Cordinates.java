@@ -1,4 +1,4 @@
-package ua.smartprog.lesson_39;
+/*package ua.smartprog.lesson_39;
 
 public class Cordinates<T extends TwoDimentions> {
     public T[] cordinates;
@@ -18,4 +18,4 @@ public class Cordinates<T extends TwoDimentions> {
         }
     }
 
-}
+}*/

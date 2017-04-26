@@ -1,4 +1,4 @@
-package ua.smartprog.lesson_39;
+/*package ua.smartprog.lesson_39;
 
 public class RunnerForCords {
     public static void main(String[] args) {
@@ -11,4 +11,4 @@ public class RunnerForCords {
         Cordinates.showXY(tdc);
         Cordinates.showXYZ(fdc);
     }
-}
+}*/
