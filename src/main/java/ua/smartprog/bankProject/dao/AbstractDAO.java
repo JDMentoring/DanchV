@@ -23,6 +23,8 @@ public abstract class AbstractDAO<T extends Identified<PK>, PK extends Integer> 
 
     public abstract void prepareStInsert(PreparedStatement stm, T obj) throws DAOownException;
 
+    public abstract void prepareStInsert(PreparedStatement stm, int pk) throws DAOownException;
+
     public abstract List<T> parsingResultSet(ResultSet rs) throws DAOownException;
 
     @Override
@@ -62,6 +64,17 @@ public abstract class AbstractDAO<T extends Identified<PK>, PK extends Integer> 
     public T getByPK(int id) throws DAOownException {
         T object;
         String query = getByPKQuery();
+         try (PreparedStatement prSt = connection.prepareStatement(query)){
+             prepareStInsert(prSt, id);
+             ResultSet rs = prSt.executeQuery();
+             List<T> list = parsingResultSet(rs);
+             object = list.iterator().next();
+         }
+        catch (Exception e){
+            throw new DAOownException(e);
+        }
+
+        return object
     }
 
     @Override
