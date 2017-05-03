@@ -89,7 +89,13 @@ public abstract class AbstractDAO<T extends Identified<PK>, PK extends Integer> 
 
     @Override
     public void delete(T obj) throws DAOownException {
-        String 
+        String query = getDeleteQuery();
+        try (PreparedStatement prSt = connection.prepareStatement(query)) {
+            prepareStInsert(prSt, obj);
+            prSt.executeQuery();
+        } catch (Exception e) {
+            throw new DAOownException(e);
+        }
     }
 
     @Override
