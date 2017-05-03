@@ -79,6 +79,8 @@ public abstract class AbstractDAO<T extends Identified<PK>, PK extends Integer> 
 
     @Override
     public void update(T obj) throws DAOownException {
+        T instance;
+        String query
 
     }
 
