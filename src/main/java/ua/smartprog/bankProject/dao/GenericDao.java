@@ -8,7 +8,7 @@ public interface GenericDao<T extends Identified<PK>, PK extends Serializable> {
 
     public T extCreate(T obj) throws DAOownException;
 
-    public T getByPK(int id) throws DAOownException;
+    public T getByPK(PK id) throws DAOownException;
 
     public void update(T obj) throws DAOownException;
 

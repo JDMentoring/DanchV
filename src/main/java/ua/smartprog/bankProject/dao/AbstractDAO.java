@@ -21,9 +21,9 @@ public abstract class AbstractDAO<T extends Identified<PK>, PK extends Integer> 
 
     public abstract String getDeleteQuery();
 
-    public abstract void prepareStInsert(PreparedStatement stm, T obj) throws DAOownException;
+    public abstract void prepareStUpdate(PreparedStatement stm, T obj) throws DAOownException;
 
-    public abstract void prepareStInsert(PreparedStatement stm, int pk) throws DAOownException;
+    public abstract void prepareStInsert(PreparedStatement stm, T obj) throws DAOownException;
 
     public abstract List<T> parsingResultSet(ResultSet rs) throws DAOownException;
 
@@ -61,11 +61,12 @@ public abstract class AbstractDAO<T extends Identified<PK>, PK extends Integer> 
     }
 
     @Override
-    public T getByPK(int id) throws DAOownException {
+    public T getByPK(PK id) throws DAOownException {
         T object;
         String query = getByPKQuery();
+        query+="WHERE id = ?";
         try (PreparedStatement prSt = connection.prepareStatement(query)) {
-            prepareStInsert(prSt, id);
+            prSt.setInt(1,id);
             ResultSet rs = prSt.executeQuery();
             List<T> list = parsingResultSet(rs);
             object = list.iterator().next();
@@ -80,8 +81,11 @@ public abstract class AbstractDAO<T extends Identified<PK>, PK extends Integer> 
     public void update(T obj) throws DAOownException {
         String query = getUpdateQuery();
         try (PreparedStatement prSt = connection.prepareStatement(query)) {
-            prepareStInsert(prSt, obj);
-            prSt.executeUpdate();
+            prepareStUpdate(prSt, obj);
+            int count = prSt.executeUpdate();
+            if (count != 1) {
+                throw new DAOownException("Error on update, changed more than 1 field " + count);
+            }
         } catch (Exception e) {
             throw new DAOownException(e);
         }
@@ -91,8 +95,11 @@ public abstract class AbstractDAO<T extends Identified<PK>, PK extends Integer> 
     public void delete(T obj) throws DAOownException {
         String query = getDeleteQuery();
         try (PreparedStatement prSt = connection.prepareStatement(query)) {
-            prepareStInsert(prSt, obj);
-            prSt.executeQuery();
+            prSt.setObject(1, obj.getId());
+            int count = prSt.executeUpdate();
+            if (count != 1) {
+                throw new DAOownException("Error on delete, deleted more than 1 field " + count);
+            }
         } catch (Exception e) {
             throw new DAOownException(e);
         }

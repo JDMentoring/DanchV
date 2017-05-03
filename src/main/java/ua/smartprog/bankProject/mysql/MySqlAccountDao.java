@@ -36,12 +36,12 @@ public class MySqlAccountDao extends AbstractDAO<Account, Integer> {
 
     @Override
     public String getUpdateQuery() {
-        return null;
+        return "UPDATE Accounts SET cardNumber = ?, password = ?, balance = ? WHERE id = ?;";
     }
 
     @Override
     public String getDeleteQuery() {
-        return null;
+        return "DELETE FROM Accounts WHERE id = ?;";
     }
 
     @Override
@@ -76,5 +76,22 @@ public class MySqlAccountDao extends AbstractDAO<Account, Integer> {
             throw new DAOownException(e);
         }
         return result;
+    }
+
+    @Override
+    public String getByPKQuery() {
+        return null;
+    }
+
+    @Override
+    public void prepareStUpdate(PreparedStatement stm, Account obj) throws DAOownException {
+        try {
+            stm.setString(1, obj.getCardNumber());
+            stm.setString(2, obj.passForDB());
+            stm.setInt(3, obj.getBalance());
+
+        } catch (Exception e) {
+            throw new DAOownException(e);
+        }
     }
 }
