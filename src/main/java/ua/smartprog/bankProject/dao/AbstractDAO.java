@@ -47,7 +47,7 @@ public abstract class AbstractDAO<T extends Identified<PK>, PK extends Integer> 
             prepareStInsert(prSt, obj);
             ResultSet rs = prSt.executeQuery();
             List<T> list = parsingResultSet(rs);
-            if ((list == null) || (list.size() != 1)){
+            if ((list == null) || (list.size() != 1)) {
                 throw new DAOownException("Помилка з отриманими даними");
             }
             instance = list.iterator().next();
@@ -64,13 +64,12 @@ public abstract class AbstractDAO<T extends Identified<PK>, PK extends Integer> 
     public T getByPK(int id) throws DAOownException {
         T object;
         String query = getByPKQuery();
-         try (PreparedStatement prSt = connection.prepareStatement(query)){
-             prepareStInsert(prSt, id);
-             ResultSet rs = prSt.executeQuery();
-             List<T> list = parsingResultSet(rs);
-             object = list.iterator().next();
-         }
-        catch (Exception e){
+        try (PreparedStatement prSt = connection.prepareStatement(query)) {
+            prepareStInsert(prSt, id);
+            ResultSet rs = prSt.executeQuery();
+            List<T> list = parsingResultSet(rs);
+            object = list.iterator().next();
+        } catch (Exception e) {
             throw new DAOownException(e);
         }
 
@@ -80,8 +79,13 @@ public abstract class AbstractDAO<T extends Identified<PK>, PK extends Integer> 
     @Override
     public void update(T obj) throws DAOownException {
         T instance;
-        String query
-
+        String query = getUpdateQuery();
+        try (PreparedStatement prSt = connection.prepareStatement(query)) {
+            prepareStInsert(prSt, obj);
+            prSt.executeUpdate();
+        } catch (Exception e) {
+            throw new DAOownException(e);
+        }
     }
 
     @Override
