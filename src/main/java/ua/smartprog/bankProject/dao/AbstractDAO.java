@@ -15,6 +15,8 @@ public abstract class AbstractDAO<T extends Identified<PK>, PK extends Integer> 
 
     public abstract String getCreateQuery();
 
+    public abstract String getByPKQuery();
+
     public abstract String getUpdateQuery();
 
     public abstract String getDeleteQuery();
@@ -58,7 +60,8 @@ public abstract class AbstractDAO<T extends Identified<PK>, PK extends Integer> 
 
     @Override
     public T getByPK(int id) throws DAOownException {
-        return null;
+        T object;
+        String query = getByPKQuery();
     }
 
     @Override
