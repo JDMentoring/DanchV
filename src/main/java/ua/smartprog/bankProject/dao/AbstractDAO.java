@@ -73,12 +73,11 @@ public abstract class AbstractDAO<T extends Identified<PK>, PK extends Integer> 
             throw new DAOownException(e);
         }
 
-        return object
+        return object;
     }
 
     @Override
     public void update(T obj) throws DAOownException {
-        T instance;
         String query = getUpdateQuery();
         try (PreparedStatement prSt = connection.prepareStatement(query)) {
             prepareStInsert(prSt, obj);
@@ -90,7 +89,7 @@ public abstract class AbstractDAO<T extends Identified<PK>, PK extends Integer> 
 
     @Override
     public void delete(T obj) throws DAOownException {
-
+        String 
     }
 
     @Override
