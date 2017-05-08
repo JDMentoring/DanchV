@@ -5,13 +5,33 @@ import ua.smartprog.bankProject.dao.DAOownException;
 import ua.smartprog.bankProject.domain.Account;
 
 import java.sql.*;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
 
 public class MySqlAccountDao extends AbstractDAO<Account, Integer> {
 
-    private class ExtAccount extends Account{
-        public void setID(int id){ super.setId(id);}
+    private class ExtAccount extends Account {
+        public void setID(int id) {
+            super.setId(id);
+        }
+
+        public void setCardEnd(GregorianCalendar cardEnd) {
+            super.setCardEnd(cardEnd);
+        }
+
+        public void setBalance(int balance) {
+            super.setBalance(balance);
+        }
+
+        public void setCardDate(GregorianCalendar cardDate) {
+            super.setCardDate(cardDate);
+        }
+
+        public void setCardNumber(String cardNumber) {
+            super.setCardNumber(cardNumber);
+        }
     }
 
     public MySqlAccountDao(Connection connection) {
@@ -31,12 +51,12 @@ public class MySqlAccountDao extends AbstractDAO<Account, Integer> {
 
     @Override
     public String getCreateQuery() {
-        return "INSERT INTO Account (id, cardNumber, password, balance) VALUES(?, ?, ?, ?);";
+        return "INSERT INTO Account (id, cardNumber, password, balance, productionDate, endDate) VALUES(?, ?, ?, ?, ? ,?);";
     }
 
     @Override
     public String getUpdateQuery() {
-        return "UPDATE Accounts SET cardNumber = ?, password = ?, balance = ? WHERE id = ?;";
+        return "UPDATE Accounts SET cardNumber = ?, password = ?, balance = ?, productionDate = ?, endDate = ? WHERE id = ?;";
     }
 
     @Override
@@ -53,6 +73,8 @@ public class MySqlAccountDao extends AbstractDAO<Account, Integer> {
             stm.setString(2, obj.getCardNumber());
             stm.setString(3, obj.passForDB());
             stm.setInt(4, obj.getBalance());
+            stm.setDate(5, convertDate(obj.getCardDate()));
+            stm.setDate(6, convertDate(obj.getCardEnd()));
         } catch (Exception e) {
             throw new DAOownException(e);
         }
@@ -69,6 +91,8 @@ public class MySqlAccountDao extends AbstractDAO<Account, Integer> {
                 ac.setCardNumber(rs.getString("number"));
                 ac.setBalance(rs.getInt("balance"));
                 ac.setPassword(rs.getString("password"));
+                ac.setCardDate(convertToGregorianCalendar(rs.getDate("productionDate")));
+                ac.setCardEnd(convertToGregorianCalendar(rs.getDate("endDate")));
                 result.add(ac);
             }
 
@@ -78,10 +102,6 @@ public class MySqlAccountDao extends AbstractDAO<Account, Integer> {
         return result;
     }
 
-    @Override
-    public String getByPKQuery() {
-        return null;
-    }
 
     @Override
     public void prepareStUpdate(PreparedStatement stm, Account obj) throws DAOownException {
@@ -89,9 +109,21 @@ public class MySqlAccountDao extends AbstractDAO<Account, Integer> {
             stm.setString(1, obj.getCardNumber());
             stm.setString(2, obj.passForDB());
             stm.setInt(3, obj.getBalance());
+            stm.setDate(4, convertDate(obj.getCardDate()));
+            stm.setDate(5, convertDate(obj.getCardEnd()));
 
         } catch (Exception e) {
             throw new DAOownException(e);
         }
+    }
+
+    protected java.sql.Date convertDate(java.util.GregorianCalendar date) {
+        return new java.sql.Date(date.getTime().getTime());
+    }
+
+    protected java.util.GregorianCalendar convertToGregorianCalendar(java.sql.Date date) {
+        GregorianCalendar gregorianCalendar = new GregorianCalendar();
+        gregorianCalendar.setTime(date);
+        return gregorianCalendar;
     }
 }

@@ -70,15 +70,15 @@ public class Account implements Serializable, Identified<Integer> {
         this.trs = trs;
     }
 
-    public void setCardEnd(GregorianCalendar cardEnd) {
+    protected void setCardEnd(GregorianCalendar cardEnd) {
         this.cardEnd = cardEnd;
     }
 
-    public void setCardNumber(String cardNumber) {
+    protected void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
     }
 
-    public void setBalance(int balance) {
+    protected void setBalance(int balance) {
         this.balance = balance;
     }
 
@@ -86,11 +86,11 @@ public class Account implements Serializable, Identified<Integer> {
         this.password = password;
     }
 
-    public void setCardDate(GregorianCalendar cardDate) {
+    protected void setCardDate(GregorianCalendar cardDate) {
         this.cardDate = cardDate;
     }
 
-    public String generateCardNumber() {
+    private String generateCardNumber() {
         Random rand = new Random();
         StringBuilder num = new StringBuilder();
         for (int i = 0; i < num.capacity(); i++) {
@@ -120,7 +120,15 @@ public class Account implements Serializable, Identified<Integer> {
         }
     }
 
-    public String generateVCNumber() {
+    public GregorianCalendar getCardDate() {
+        return cardDate;
+    }
+
+    public GregorianCalendar getCardEnd() {
+        return cardEnd;
+    }
+
+    private String generateVCNumber() {
         Random generator = new Random();
         StringBuilder num = new StringBuilder();
         for (int i = 0; i < num.capacity(); i++) {
@@ -164,13 +172,13 @@ public class Account implements Serializable, Identified<Integer> {
         }
     }
 
-    public int scan(int i) {
+    private int scan(int i) {
         Scanner scan = new Scanner(System.in);
         scan.nextInt();
         return i;
     }
 
-    public String scanText() {
+    private String scanText() {
         Scanner scan = new Scanner(System.in);
         String i = scan.next();
         return i;
@@ -185,7 +193,7 @@ public class Account implements Serializable, Identified<Integer> {
     }
 
     //finish refactor
-    public static String generateDefaultPassword() {
+    private static String generateDefaultPassword() {
         //retrying
         final int PASSLEN = 8;
         Random generator = new Random();
@@ -229,41 +237,6 @@ public class Account implements Serializable, Identified<Integer> {
         return tempPassword.equals(this.password);
     }
 
-    public String toString() {
-        return "Account[Card number = " + cardNumber
-                + ", Balance = " + balance
-                + "]";
-    }
-
-    public void shortInfo() {
-        System.out.println("Number: " + this.cardNumber);
-    }
-
-    public static void saveData(String filename, Account accObject) throws IOException {
-        FileOutputStream fileOut = null;
-        ObjectOutputStream objOut = null;
-
-        try {
-            fileOut = new FileOutputStream(filename + ".ser");
-            objOut = new ObjectOutputStream(fileOut);
-            objOut.writeObject(accObject);
-            log.info("Serialized!!!");
-
-            log.info("Finish all streams!!!");
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found!!!");
-            log.error("File not found!!!");
-            e.printStackTrace();
-        } catch (IOException e) {
-            System.out.println("Object not found!!!");
-            log.error("Object not found!!!");
-            e.printStackTrace();
-        } finally {
-            fileOut.close();
-            objOut.close();
-        }
-    }
-
     @Override
     public Integer getId() {
         return this.id;
@@ -272,4 +245,12 @@ public class Account implements Serializable, Identified<Integer> {
     public int getBalance() {
         return balance;
     }
+
+    @Override
+    public String toString() {
+        return "Account[Card number = " + cardNumber
+                + ", Balance = " + balance
+                + "]";
+    }
+
 }

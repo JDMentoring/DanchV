@@ -57,7 +57,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>ua.smartprog.lesson_12.FStest</mainClass>
+                            <mainClass>ua.smartprog.lessons.lesson_12.FStest</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
