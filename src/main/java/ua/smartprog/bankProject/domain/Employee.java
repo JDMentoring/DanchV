@@ -37,7 +37,7 @@ public class Employee extends Human implements Comparable<Employee> {
         this.salary = salary;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

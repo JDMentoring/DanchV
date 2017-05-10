@@ -3,22 +3,23 @@ package ua.smartprog.bankProject.domain;
 import ua.smartprog.bankProject.other.Base;
 
 public class Manager extends Employee {
+    private int id;
     private int tax;
-    private String bankName;
+    private String bankDepartment;
 
     public Manager() {
         super.defSet();
         tax = 300;
-        bankName = "MyBank";
+        bankDepartment = "MyBank";
         setSalary(8000);
     }
 
-    public Manager(String fName, String sName, int year, int month, int day, int ID, int Sal, String bankName) {
+    public Manager(String fName, String sName, int year, int month, int day, int ID, int Sal, String bankDepartment) {
         super.setFirstName(fName);
         super.setSecondName(sName);
         super.setBD(year, month, day);
         tax = 300;
-        this.bankName = bankName;
+        this.bankDepartment = bankDepartment;
         setSalary(8000);
     }
 
@@ -32,18 +33,18 @@ public class Manager extends Employee {
     }
 
 
-    public String getBankName() {
-        return bankName;
+    public String getBankDepartment() {
+        return bankDepartment;
     }
 
 
-    public void setBankName(String bankName) {
-        this.bankName = bankName;
+    public void setBankDepartment(String bankDepartment) {
+        this.bankDepartment = bankDepartment;
     }
 
-    public Manager(String bankName) {
+    public Manager(String bankDepartment) {
 
-        this.bankName = bankName;
+        this.bankDepartment = bankDepartment;
     }
 
     public int getTax() {
@@ -58,7 +59,7 @@ public class Manager extends Employee {
 
     public String toString() {
         return super.toString() + ", Tax = " + tax
-                + ", Bank Name = " + bankName
+                + ", Bank Name = " + bankDepartment
                 + "]";
     }
 
@@ -66,6 +67,19 @@ public class Manager extends Employee {
     public void newEmployee(Employee emp) {
         Base empBase = new Base();
         empBase.employ(emp);
+    }
+
+    @Override
+    public Integer getId() {
+        return this.id;
+    }
+
+    protected void setId(int id) {
+        this.id = id;
+    }
+
+    protected void setTax(int tax) {
+        this.tax = tax;
     }
 
     public void deleteEmployee(int index) {
