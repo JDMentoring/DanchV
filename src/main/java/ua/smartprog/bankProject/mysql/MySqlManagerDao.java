@@ -4,6 +4,7 @@ import ua.smartprog.bankProject.dao.AbstractDAO;
 import ua.smartprog.bankProject.dao.DAOownException;
 import ua.smartprog.bankProject.domain.Manager;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.LinkedList;
@@ -13,6 +14,10 @@ import java.util.List;
  * Created by Тарас on 10.05.2017.
  */
 public class MySqlManagerDao extends AbstractDAO<Manager, Integer> {
+
+    public MySqlManagerDao(Connection connection) {
+        super(connection);
+    }
 
     private class ExtManager extends Manager{
         public void setID(int id){ super.setId(id);}
@@ -41,13 +46,18 @@ public class MySqlManagerDao extends AbstractDAO<Manager, Integer> {
     }
 
     @Override
+    public void prepareStUpdate(PreparedStatement stm, Manager obj) throws DAOownException {
+
+    }
+
+    @Override
     public void prepareStInsert(PreparedStatement stm, Manager obj) throws DAOownException {
         int managerID = (obj.getId() == null) ? 0 : obj.getId();
 
         try {
             stm.setInt(1, managerID);
             stm.setInt(2, obj.getTax());
-            stm.setString(3, obj.getBankDepartment()));
+            stm.setString(3, obj.getBankDepartment());
         } catch (Exception e) {
             throw new DAOownException(e);
         }
