@@ -1,0 +1,118 @@
+TCP Port: 3306, Named Pipe: (null)
+Time                 Id Command    Argument
+170521 12:03:14	    1 Connect	root@localhost on 
+		    1 Connect	Access denied for user 'root'@'localhost' (using password: YES)
+170521 12:03:20	    2 Connect	root@localhost on 
+		    2 Query	select @@version_comment limit 1
+170521 12:04:54	    2 Query	SHOW DATABASES
+170521 12:05:45	    2 Query	SELECT DATABASE()
+170521 12:05:55	    2 Query	SELECT DATABASE()
+		    2 Init DB	danulo_test_db
+170521 12:06:14	    2 Query	SHOW TABLES
+l
+170521 12:06:18	    2 Query	SHOW TABLES
+170521 12:07:16	    2 Query	DESC accounts
+170521 12:07:43	    2 Query	SELECT * FROM accounts
+170521 12:08:41	    2 Query	UPDATE accounts SET balance WHERE
+170521 12:09:24	    2 Query	UPDATE accounts SET
+balance = 101010 WHERE account_id = 2
+170521 12:09:32	    2 Query	SELECT * FROM accounts
+170521 12:17:11	    3 Connect	root@localhost on danulo_test_db
+		    3 Query	DESC accounts
+170521 12:19:06	    3 Query	ALTER TABLE accounts
+UNISQUE(car_number)
+170521 12:19:40	    3 Query	ALTER TABLE accounts
+UNIQUE(car_number)
+170521 12:19:53	    3 Query	ALTER TABLE accounts
+UNIQUE(card_number)
+170521 12:21:18	    3 Query	ALTER TABLE accounts
+CHANGE card_number
+UNIQUE(card_number)
+170521 12:22:36	    3 Quit	
+170521 12:22:52	    4 Connect	root@localhost on 
+		    4 Query	select @@version_comment limit 1
+170521 12:23:03	    4 Query	SELECT DATABASE()
+		    4 Init DB	danulo_test_db
+170521 12:23:18	    4 Query	SHOW TABLES
+170521 12:25:40	    4 Query	CREATE TABLE clients
+client_id INT AUTOINCREMENT,
+name STRING NOTNULL,
+surname STRING NOT
+170521 12:27:21	    4 Query	CREATE TABLE clients
+client_id INT AUTOINCREMENT,
+name VARCHAR(10) NOT NULL,
+surnname VARCHAR(15) NOT NULL,
+passport_number VARCHAR(8)
+170521 12:28:18	    4 Query	CREATE TABLE clients
+client_id INT AUTO_INCREMENT,
+name VARCHAR(10) NOT NULL,
+surnname VARCHAR(15) NOT NULL,
+passport_number VARCHAR(8)
+170521 12:29:33	    4 Query	CREATE TABLE clients
+client_id INT AUTO_INCREMENT,
+name VARCHAR(10) NOT NULL,
+surnname VARCHAR(15) NOT NULL,
+passport_number VARCHAR(8)
+170521 12:30:09	    4 Query	CREATE TABLE clients
+client_id INT AUTO_INCREMENT
+170521 12:30:46	    4 Query	CREATE TABLE clients(
+client_id INT AUTO_INCREMENT,
+name VARCHAR(10) NOT NULL,
+surnname VARCHAR(15) NOT NULL,
+passport_number VARCHAR(8))
+170521 12:31:14	    4 Query	SHOW TABLES
+170521 12:31:24	    4 Query	CREATE TABLE clients(
+client_id INT AUTO_INCREMENT,
+name VARCHAR(10) NOT NULL,
+surnname VARCHAR(15) NOT NULL,
+passport_number VARCHAR(8))
+170521 12:32:06	    4 Query	CREATE TABLE clients(
+client_id INT AUTO_INCREMENT,
+name VARCHAR(10) NOT NULL,
+surnname VARCHAR(15) NOT NULL,
+passport_number VARCHAR(8),
+PRIMARY KEY(clien_id))
+170521 12:32:22	    4 Query	CREATE TABLE clients(
+client_id INT AUTO_INCREMENT,
+name VARCHAR(10) NOT NULL,
+surnname VARCHAR(15) NOT NULL,
+passport_number VARCHAR(8),
+PRIMARY KEY(client_id))
+170521 12:32:33	    4 Query	DESC clients
+170521 12:33:14	    4 Query	ALTER TABLE clients
+ADD UNIQUE(passport_number)
+170521 12:33:30	    4 Query	DESC clients
+170521 12:36:08	    4 Query	ALTER TABLE 
+clients
+ADD INDEX(name)
+170521 12:36:10	    4 Query	DESC clients
+170521 12:38:24	    4 Query	SHOW TABLES
+170521 12:39:57	    4 Query	SELECT * FROM accounts GROUP BY print_date
+170521 12:40:21	    4 Query	SELECT * FROM accounts
+170521 12:43:17	    4 Query	SELECT COUNT(*), * FROM accounts GROUP BY prinat_date
+170521 12:43:33	    4 Query	SELECT COUNT(*), print_date FROM accounts GROUP BY prinat_date
+170521 12:43:39	    4 Query	SELECT COUNT(*), print_date FROM accounts GROUP BY print_date
+170521 12:43:51	    4 Query	SELECT COUNT(*), print_date FROM accounts GROUP BY print_date
+170521 12:44:54	    4 Query	SELECT COUNT(*) FROM accounts
+170521 12:45:31	    4 Query	DESC accounts
+170521 12:47:09	    4 Query	INSERT INTO accounts VALUES(
+NULL,
+'5664646',
+'45645',
+50505050,
+'2017-05-21',
+'2021-05-21')
+170521 12:47:21	    4 Query	SELECT LAST_INSERT_ID()
+170521 12:48:03	    4 Query	SELECT COUNT(*) FROM accounts
+170521 12:48:42	    4 Query	DELETE FROM accounts WHERE accout_id = 3
+170521 12:48:53	    4 Query	DELETE FROM accounts WHERE account_id = 3
+170521 12:48:57	    4 Query	SELECT LAST_INSERT_ID()
+170521 12:49:02	    4 Query	SELECT COUNT(*) FROM accounts
+170521 12:50:00	    4 Query	SELECT * FROM accounts
+170521 12:50:54	    4 Query	SELECT MIN(balance), MAX(balance), AVG(balance) FROM accounts
+170521 12:54:11	    4 Query	SELECT GROUP_CONCAT(card_number SEPARATOR ', '), print_date FROM accounts GROUP BY print_date
+170521 12:56:32	    4 Query	UPDATE accounts SET print_date = '2017-05-17' WHERE account_id = 4
+170521 12:56:41	    4 Query	SELECT GROUP_CONCAT(card_number SEPARATOR ', '), print_date FROM accounts GROUP BY print_date
+170521 12:57:19	    4 Query	SELECT GROUP_CONCAT(card_number SEPARATOR ', ') AS GROUP, print_date FROM accounts GROUP BY print_date
+170521 12:57:32	    4 Query	SELECT GROUP_CONCAT(card_number SEPARATOR ', ') AS 'GROUP', print_date FROM accounts GROUP BY print_date
+170521 12:59:39	    4 Query	SELECT SUM(balance) AS 'Day payment' FROM accounts
