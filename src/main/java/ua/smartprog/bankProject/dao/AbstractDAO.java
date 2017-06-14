@@ -19,8 +19,6 @@ public abstract class AbstractDAO<T extends Identified<PK>, PK extends Integer> 
 
     public abstract String getDeleteQuery();
 
-    public abstract void prepareStUpdate(PreparedStatement stm, T obj) throws DAOownException;
-
     public abstract void prepareStInsert(PreparedStatement stm, T obj) throws DAOownException;
 
     public abstract List<T> parsingResultSet(ResultSet rs) throws DAOownException;

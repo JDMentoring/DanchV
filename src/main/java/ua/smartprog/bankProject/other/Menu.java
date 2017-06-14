@@ -64,24 +64,13 @@ public class Menu {
     }
 
     public void login_customer() {
-        int index = 0;
-        String checkCard;
-        System.out.println("Login : \n"
-                + "card number :");
-        Scanner login = new Scanner(System.in);
-        String cardNum = login.next();
-        for (int i = 0; i < 20; i++) {
-            checkCard = Base.getAccountsBase(i).getCardNumber();
-            if (cardNum == checkCard) {
-                index = i;
-                break;
-            }
-        }
-        System.out.println("\npassword : ");
-        if (Base.getAccountsBase(index).checkPassword()) {
-            customerInterface(index);
-            System.out.println("Go To Cus iface!!!");
-        }
+        System.out.print("name: ");
+        String name = scanText();
+        System.out.println("surname: ");
+        String surname = scanText();
+        System.out.println("password: ");
+        String password = scanText();
+
     }
 
     public void customerInterface(int index) {
