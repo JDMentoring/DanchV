@@ -1,8 +1,9 @@
 package ua.smartprog.bankProject.domain;
 
+import ua.smartprog.bankProject.dao.Identified;
 import ua.smartprog.bankProject.other.Base;
 
-public class Manager extends Employee {
+public class Manager extends Employee implements Identified<Integer> {
     private int id;
     private int tax;
     private String bankDepartment;

@@ -1,10 +1,12 @@
 package ua.smartprog.bankProject.domain;
 
+import ua.smartprog.bankProject.dao.Identified;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Customer extends Human {
+public class Customer extends Human implements Identified<Integer> {
     private ArrayList<Account> customerAccount;
     private String phoneNumber;
 
@@ -13,11 +15,7 @@ public class Customer extends Human {
         this.customerAccount = new ArrayList<Account>();
         this.customerAccount.ensureCapacity(1);
         this.customerAccount.add(new Account());
-        try {
-            Account.saveData("Account", customerAccount.get(customerAccount.size() - 1));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
 
     }
 
@@ -29,11 +27,6 @@ public class Customer extends Human {
         this.customerAccount = new ArrayList<Account>();
         this.customerAccount.ensureCapacity(1);
         this.customerAccount.add(new Account(money, pass));
-        try {
-            Account.saveData("Account", customerAccount.get(customerAccount.size() - 1));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
     }
     public void setPhoneNumber(String phoneNumber) {
@@ -41,18 +34,18 @@ public class Customer extends Human {
     }
 
     public void openVisaAccount() {
-        this.customerAccount.add(new Account("VISA", 0, Account.generateDefaultPassword()));
+        this.customerAccount.add(new Account());
     }
     // TODO Task 1901
     public void openAccount() {
-        this.customerAccount.add(new Account(0, Account.generateDefaultPassword()));
+        this.customerAccount.add(new Account());
     }
     // TODO Task 1901
-    public void closeAccount() {
+    /*public void closeAccount() {
         this.customerAccount.remove(chosseAccount());
-    }
+    }*/
     // TODO Task 1901
-    public int chosseAccount() {
+    /*public int chosseAccount() {
         Scanner indexScan = new Scanner(System.in);
         int index;
 
@@ -65,8 +58,14 @@ public class Customer extends Human {
         }
         while (index < 0 && index > this.customerAccount.size());
         return index;
+    }*/
+
+    @Override
+    public Integer getId() {
+        return null;
     }
-    public String ToString(){
+
+    public String toString(){
         return "Custemer[First Name = " + getFirstName()
                 + ", Second Name = " + getSecondName()
                 + ", Age = " + getAge()
