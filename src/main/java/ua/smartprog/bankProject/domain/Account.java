@@ -253,4 +253,31 @@ public class Account implements Serializable, Identified<Integer> {
                 + "]";
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Account account = (Account) o;
+
+        if (id != account.id) return false;
+        if (balance != account.balance) return false;
+        if (cardNumber != null ? !cardNumber.equals(account.cardNumber) : account.cardNumber != null) return false;
+        if (password != null ? !password.equals(account.password) : account.password != null) return false;
+        if (cardDate != null ? !cardDate.equals(account.cardDate) : account.cardDate != null) return false;
+        if (cardEnd != null ? !cardEnd.equals(account.cardEnd) : account.cardEnd != null) return false;
+        return trs != null ? trs.equals(account.trs) : account.trs == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (cardNumber != null ? cardNumber.hashCode() : 0);
+        result = 31 * result + balance;
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (cardDate != null ? cardDate.hashCode() : 0);
+        result = 31 * result + (cardEnd != null ? cardEnd.hashCode() : 0);
+        result = 31 * result + (trs != null ? trs.hashCode() : 0);
+        return result;
+    }
 }
