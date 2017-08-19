@@ -10,4 +10,8 @@ public class Node<T> {
     public void setPointer(Node pointer){
         this.pointer = pointer;
     }
+
+    public T getObject(){
+        return this.object;
+    }
 }
