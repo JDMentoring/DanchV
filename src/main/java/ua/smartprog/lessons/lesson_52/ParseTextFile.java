@@ -10,6 +10,9 @@ public class ParseTextFile {
         Set<String> words = new HashSet<String>();
         String loadedFile = load("./src/main/java/ua/smartprog/lessons/lesson_52/somebook.txt");
         String[] array = (loadedFile + " ").split("\\p{P}?[ \\t\\n\\r]+");
+        for(int i = 0; i < array.length; i++){
+            words.add(array[i]);
+        }
     }
 
     public static String load(String path) throws FileNotFoundException {
