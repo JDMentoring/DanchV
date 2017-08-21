@@ -9,9 +9,7 @@ public class ParseTextFile {
     public static void main(String[] args) throws FileNotFoundException {
         Set<String> words = new HashSet<String>();
         String loadedFile = load("./src/main/java/ua/smartprog/lessons/lesson_52/somebook.txt");
-        while (true){
-
-        }
+        String[] array = (loadedFile + " ").split("\\p{P}?[ \\t\\n\\r]+");
     }
 
     public static String load(String path) throws FileNotFoundException {
