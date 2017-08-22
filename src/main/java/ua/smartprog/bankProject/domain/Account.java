@@ -9,7 +9,7 @@ import java.util.Random;
 import org.apache.log4j.Logger;
 import ua.smartprog.bankProject.dao.Identified;
 
-public class Account implements Serializable, Identified<Integer> {
+public class Account implements Serializable, Identified<Integer>, Comparable<Account>{
     private static final Logger log = Logger.getLogger(Account.class);
 
     private int id;
@@ -279,5 +279,11 @@ public class Account implements Serializable, Identified<Integer> {
         result = 31 * result + (cardEnd != null ? cardEnd.hashCode() : 0);
         result = 31 * result + (trs != null ? trs.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public int compareTo(Account o) {
+        int result =  this.getCardNumber().compareTo(o.getCardNumber());
+        return  result;
     }
 }
